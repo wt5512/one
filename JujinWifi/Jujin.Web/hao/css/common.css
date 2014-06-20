@@ -1,0 +1,346 @@
+
+/*手机导航*/
+.drdwif-topnav {
+	text-align: center;
+}
+.drdwif-topnav tr td {
+    width: 33%;
+}
+.drdwif-topnav tr td img {
+	width: 20px;
+	height: 20px;
+	vertical-align: -3px;
+	margin-right: 4px;
+}
+.drdwif-topnav tr td a {
+	color:# 333;
+}
+.drdwif-menu {
+	width: 100%;
+	height: 40px;
+	background: #12aae6;
+	overflow: hidden;
+}
+.drdwif-menu p {
+	color: #fff;
+	text-align: center;
+	line-height: 40px;
+	font-size: 18px;
+}
+.drddh-menu {
+	margin-left: 28px;
+}
+.drdwif-contentnav {
+	text-align: center;
+	color: #f00;
+}
+.drdwif-contentnav tr td {
+	width: 25%;
+}
+.drdwif-contentnav tr td a {
+	color: #333;
+}
+.drdwifi-footnav {
+	width: 100%;
+	border-bottom: 1px solid #d6d6d6;
+}
+.drdwifi-footnav dl {
+	margin: 10px 0;
+}
+.drdwifi-footnav dd , .drdwifi-footnav dt{
+	float: left;
+}
+.drdwifi-footnav dt {
+	width: 20%;
+	text-align: center;
+	border-right: 2px solid #d6d6d6;
+
+}
+.drdwifi-footnav dd {
+	width: 20%;
+	text-align: center;
+}
+.drdwifi-footnav dd a {
+	color: #333;
+}
+.drdwifi-banner {
+	bottom: -3px;
+}
+.drdwifi-content {
+	display: block;
+	position: relative;
+}
+.box ,.drdwifi-sjxx {
+   padding: 7px 7px 0px 7px;
+   margin-bottom: 0;
+   overflow: hidden;
+   -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   -ms-box-sizing: border-box;
+   box-sizing: border-box;
+}
+
+.drdwifi-content ul li {
+	position: relative;
+	float: left;
+}
+.box1, .box2, .box3 {
+    height: 100px;
+    opacity: 1.0;
+}
+.box1 {
+    width: 44%;
+    background: #35aae7;
+    outline: 7px solid #f5f5f5;
+}
+.box2 {
+   width: 28%;
+   background: #678ce1;
+   outline: 7px solid #f5f5f5;
+}
+.box3 {
+   width: 28%;
+   background: #8656f3;
+   outline: 7px solid #f5f5f5;
+}
+.box4 {
+   width: 34%;
+   height: 110px;
+   background: #ee5728;
+   outline: 7px solid #f5f5f5;
+}
+.box5 {
+  width: 66%;
+  height: 110px;
+  overflow: hidden;
+  text-align: right;
+  outline: 7px solid #f5f5f5;
+}
+.box1:hover, .box2:hover,.box3:hover, .box4:hover {
+ opacity: 0.9;
+}
+.box5 img {
+	width: 100%;
+	height: 110px;
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+.drdwifi-footer {
+	padding: 0 7px;
+}
+.drdwifi-sjxx {
+	margin-top: 7px;
+	padding-bottom: 7px;
+	background: #00CC99;
+}
+.drdwifi-sjxx h4 {
+	color: #fff;
+}
+.drdwifi-sjxx p {
+	margin:auto;
+	color: #fff;
+}
+.list-inline > li {
+	padding:0;
+}
+.box b {
+    color: #fff !important;
+    position: relative;
+    left: 8px;
+    top: 10px;
+	display: block;
+}
+.drdwifi-icon ,.drdwifi-icon2{
+	color: #fff;
+   font-size: 23px;
+   right: auto;
+   left: -26px;
+   top: 44px;
+   float: right;
+}
+.drdwifi-icon2 {
+	left: -17px !important;
+}
+
+.drdwifi-icons {
+	color: #fff;
+   font-size: 30px;
+   right: auto;
+   left: -21px;
+   top: 49px;
+   float: right;
+}
+footer p {
+	padding-top: 5px;
+	text-align: center;
+
+}
+.drdwifi-tc {
+	text-indent: 2em;
+}
+
+/*登录*/
+.form-signin {
+  max-width: 350px;
+  margin: 0 auto;
+  position: relative;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px 10px 10px 38px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+
+
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.drdwifi-djbtn {
+	border-radius: 0;
+}
+.drdwifi-topbtn {
+	margin-top: 10px;
+}
+.drdwifi-iconb {
+	color: #C7C4C4;
+	font-size: 20px;
+	position: absolute;
+	top: 12px;
+	left: 9px;
+	z-index: 100;
+}
+.drdwifi-login {
+	position:relative;
+	width:100%;
+	height:67px;;
+}
+.drdwifi-iconc {
+	color: #C7C4C4;
+	font-size: 20px;
+    z-index: 100;
+	position:relative;
+	top:35px;
+	margin-left:10px;
+}
+.drdwifi-icond {
+	color: #2e9fff;
+	font-size: 16px;;
+	z-index:100;
+	background:#fff;
+	border:none;
+	float:right;
+	position: relative;
+    top: 33px;
+    right: 20px;
+}
+/*PC版登陆首页*/
+#wifipc-bg {
+	min-height:970px;
+	background:url(../imges/pc-bg.jpg)  no-repeat;
+	background-size:cover;
+	background-position: center 0;
+	background-attachment:fixed;
+	zoom:1;
+}
+.wifipc-logo {
+	width:1000px;
+}
+.wifipc-logo img {
+	padding:35px 0;
+}
+.wifipc-box1 {
+	width:475px;
+}
+.carousel-inner .banner img {
+	width:475px;
+	height:166px;
+}
+.drdwifi-iconds {
+    color: #2e9fff;
+    font-size: 16px;;
+    z-index:100;
+    background:transparent;
+    border:none;
+    float:right;
+    position: relative;
+    top: -154px;
+    right: 20px;
+    outline:none;
+}
+.drdwifi-iconds:hover {
+    outline:none;
+    border:none;
+    color: #2e9fff;
+    text-decoration: none;
+}
+.wifipc-sjxx {
+	width:417px;
+	padding:10px 20px;
+	background:#2096d8;
+	color:#fff;
+
+}
+.wifipc-box2 {
+	width:170px;
+	height:152px;
+	background:#2096d8;
+}
+.wifipc-box2 b {
+	color:#fff;
+	font-size:16px;
+	position:absolute;
+	right: 77px;
+    top: 18px;
+}
+.wifipc-box3 {
+	width:153px;
+	height:166px;
+	background:#d64c34;
+
+}
+.wifipc-box3 b {
+	color:#fff;
+	font-size:16px;
+	position:absolute;
+	right: 64px;
+    top: 18px;
+
+}
+.drdwifi-pcicon {
+   color: #fff;
+   font-size: 31px;
+   right: auto;
+   left: -26px;
+   top: 108px;
+   float: right;
+}
+.drdwifi-pcicon2 {
+	 color: #fff;
+   font-size: 31px;
+   right: auto;
+   left: -26px;
+   top: 108px;
+   float: right;
+}

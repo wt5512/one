@@ -1,0 +1,190 @@
+﻿@{
+    Layout = "~/Views/Shared/Merchant_Layout.cshtml";
+    ViewBag.Title = "商家后台";
+
+    Jujin.Dao.wifi_merchant merchant = Jujin.Web.JujinContext.GetCurrentMerchant();
+
+    Jujin.Dao.DataWifiDataContext db = new Jujin.Dao.DataWifiDataContext();
+    //var guestlist = from a in db.wifi_guest
+    //                    join b in db.wifi_auth on a.last_login_token equals b.token
+    //                    where a.merchant_Id == merchant.id && a.wifi_guest_type_id == int.Parse(Request.QueryString["guest_type_id"])
+    //                    group new { guest = a, incoming = (long)b.incoming, outgoing = (long)b.outgoing } by a into g
+    //                    select new { incoming = g.Max(a => a.incoming), outgoing = g.Max(a => a.outgoing), g };
+    //var guestlist = ViewBag.guestlist;
+
+    int pagesize = 10;
+    int pageindex = 1;
+    if(!int.TryParse(Request.QueryString["pageindex"],out pageindex)){
+        pageindex = 1;
+    }
+    if(pageindex<1){
+        pageindex = 1;   
+    }
+    int precount = (pageindex - 1) * pagesize;
+    int recordCount = 0;
+
+    string guest_type_id = Request.QueryString["guest_type_id"]??"";
+    bool isonline = Request.QueryString["isonline"] == "1" ? true : false;
+    
+    var guestlist = from a in db.wifi_guest
+                    where a.merchant_Id == merchant.id
+                    select a;
+
+    if (!string.IsNullOrEmpty(guest_type_id))
+    {
+        guestlist = guestlist.Where(a => a.wifi_guest_type_id == int.Parse(guest_type_id));
+    }
+    if (isonline)
+    {
+        guestlist = guestlist.Where(a => a.is_online == true);
+    }
+    recordCount = guestlist.Count();
+    guestlist = guestlist.Skip(precount).Take(pagesize);
+
+}
+@{Html.RenderPartial("UC_Top_Merchant");}
+@{Html.RenderPartial("UC_Left_Merchant");}
+<div class="content">
+    <div class="container-fluid">
+        <div id="pad-wrapper" class="settings-wrapper">
+            <ul class="breadcrumb">
+                <li><a href="/merchant">首页</a> <span class="divider">/</span></li>
+                <li class="active">@(isonline?"在线":"") 访客列表</li>
+            </ul>
+            <!-- avatar column -->
+            <!-- edit form column -->
+            <div class="personal-info">
+                <div style="margin-bottom: 5px; width: 94%;" class="alert alert-info">
+                    <i class="icon-lightbulb">欢迎登录 <strong> @merchant.merchant_name</strong> 管理中心！
+                    <br />
+                    <a href="/merchant/guestlist" class="btn btn-primary btn-tag @(guest_type_id == ""&&!isonline ? "btn-tag-curr" : "")">全部访客</a>
+                    <a href="/merchant/guestlist/?isonline=1" class="btn btn-primary btn-tag @(isonline ? "btn-tag-curr" : "")">在线访客</a>
+                    <a href="/merchant/guestlist/?guest_type_id=1" class="btn btn-primary btn-tag @(guest_type_id == "1" ? "btn-tag-curr" : "")">手机访客</a>
+                    <a href="/merchant/guestlist/?guest_type_id=2" class="btn btn-primary btn-tag @(guest_type_id == "2" ? "btn-tag-curr" : "")">短信认证访客</a>
+                    <a href="/merchant/guestlist/?guest_type_id=3" class="btn btn-primary btn-tag @(guest_type_id == "3" ? "btn-tag-curr" : "")">微信访客</a>
+                    <a href="/merchant/guestlist/?guest_type_id=4" class="btn btn-primary btn-tag @(guest_type_id == "4" ? "btn-tag-curr" : "")">微博访客</a>
+                    <a href="/merchant/guestlist/?guest_type_id=5" class="btn btn-primary btn-tag @(guest_type_id == "5" ? "btn-tag-curr" : "")">QQ访客</a>
+                    <a href="/merchant/guestlist/?guest_type_id=0" class="btn btn-primary btn-tag @(guest_type_id == "0" ? "btn-tag-curr" : "")">免认证访客</a>
+                    </i>
+                </div>
+                <div class="clearfix ">
+                </div>
+            </div>
+            <div>
+                <table class="table table-bordered ">
+                    <thead>
+                        <tr>
+                            <th class="span1">
+                                &nbsp;&nbsp;<i class="icon-th icon-large"></i>
+                            </th>
+                            <th class="span2">
+                                <strong>登录名/昵称</strong>
+                            </th>
+                            <th class="span2">
+                                <strong>最后登录时间/流量</strong>
+                            </th>
+                            <th class="span2">
+                                <strong>在线状态</strong>
+                            </th>
+                            <th class="span2">
+                                <strong>创建时间</strong>
+                            </th>
+                            <th class="span2">
+                                <strong>操作</strong>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="responds">
+                    @if (guestlist != null)
+                    {
+                        int i = 0;
+                        foreach (var guest in guestlist)
+                        {
+                            i++;
+                        <tr @(i % 2 == 0 ? "" : "style='background-color: #F7F7F9;'")>
+                            <td>
+                                <span class="badge  label-info">@(i+precount)</span>
+                            </td>
+                            <td>
+                                @if(guest.wifi_guest_type_id!=3&&guest.wifi_guest_type_id!=0)
+                                {
+                                    @guest.login_name
+                                    if(guest.nickname!="")
+                                    {
+                                    <br /><span>昵称:</span>
+                                    @guest.nickname
+                                    }
+                                }
+                                else{
+                                    <span>无</span>
+                                }
+                            </td>
+                            <td>
+                                @(((DateTime)guest.last_login_time).ToString("yyyy-MM-dd HH:mm:ss"))<br />
+                                流入：@(guest.last_incoming!=null?((double)guest.last_incoming / 1024.00 / 1024.00).ToString("f2"):"0")M<br />
+                                流出：@(guest.last_outgoing!=null?((double)guest.last_outgoing / 1024.00 / 1024.00).ToString("f2"):"0")M<br />
+                            </td>
+                            <td>
+                                @((bool)guest.is_online ? "在线" : "离线")
+                            </td>
+                            <td>
+                                @guest.create_time.ToString("yyyy-MM-dd HH:mm:ss")
+                            </td>
+                            <td>
+                                <a href="/merchant/gooutguest?guest_id=@guest.id" class="btn btn-primary btn-mini goout">下线</a>
+                                <a href="/merchant/BlackAddForAjax?login_name=@guest.login_name" class="btn btn-primary btn-mini blackadd">加入黑名单</a>
+                                <a href="/merchant/delguest?guest_id=@guest.id" class="btn btn-primary btn-mini del">删除</a>
+                            </td>
+                        </tr>
+                        }
+                    }
+                    </tbody>
+                </table>
+                @Html.Raw(Jujin.Web.Helper.getpagehtml(pageindex,recordCount, pagesize))
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".goout").click(function () {
+            if (confirm("确定要强制下线该用户吗？")) {
+                $.get($(this).attr("href"), function (data) {
+                    if (data == "ok") {
+                        alert("下线请求已发出，稍等几分钟后该访客将会强制下线");
+                    }
+                    else {
+                        alert(data);
+                    }
+                });
+            }
+            return false;
+        });
+        $(".del").click(function () {
+            if (confirm("确定要删除该用户吗？")) {
+                $.get($(this).attr("href"), function (data) {
+                    if (data == "ok") {
+                        alert("删除访客成功");
+                    }
+                    else {
+                        alert(data);
+                    }
+                });
+            }
+            return false;
+        });
+        $(".blackadd").click(function () {
+            if (confirm("确定要将该用户加入黑名单吗？")) {
+                $.get($(this).attr("href"), function (data) {
+                    if (data == "ok") {
+                        alert("加入黑名单成功！");
+                    }
+                    else {
+                        alert(data);
+                    }
+                });
+            }
+            return false;
+        });
+    });
+</script>

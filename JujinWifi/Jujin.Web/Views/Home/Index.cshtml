@@ -1,0 +1,176 @@
+﻿@{
+    Layout = null;
+    Response.Redirect("/wifi");
+    if(Request.Url.Host.Contains("www.jujinsoft.com"))
+    {
+        Response.Redirect("/wifi");
+    }
+    if (Request.QueryString["token"] == null)
+    {
+        Response.Redirect("~/template/Default/Login.aspx?merchant_id=4&gw_address=s.jujinsoft.com&gw_port=80&gw_id=e4407df7-fc68-4439-8b6d-359367d53f0b&url=http%3A//www.baidu.com/");
+    }
+}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>手机导航</title>
+    <meta name="viewport" content="width=device-width,user-scalable=0,initial-scale=1,maximum-scale=1">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <link href="hao/css/bootstrap.min.css" rel="stylesheet"
+        type="text/css">
+    <link href="hao/css/common.css" rel="stylesheet" type="text/css">
+    <style>
+        .container
+        {
+            min-width: 200px !important;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <div>尊敬的<strong> @(new Jujin.Dao.DataWifiDataContext().wifi_guest.SingleOrDefault(a=>a.last_login_token==Request.QueryString["token"]).nickname)</strong> 用户，您已成功登录系统，感谢您的支持！您现在可以浏览其它网络资源</div>
+
+        <div class="table-responsive">
+            <div class="row">
+                <div class="drdwif-menu">
+                    <p>
+                        手机导航</p>
+                </div>
+            </div>
+            <table class="table drdwif-topnav">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="http://sina.cn/?wm=3171">
+                                <img src="hao/images/sina.png">新浪</a>
+                        </td>
+                        <td>
+                            <a href="http://3g.163.com/x/">
+                                <img src="hao/images/wangyi.png">网易</a>
+                        </td>
+                        <td>
+                            <a href="http://m.sohu.com/">
+                                <img src="hao/images/souhu.png">搜狐</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="http://info.3g.qq.com/g/s?aid=index&from=wap3g&s_it=1&sid=00">
+                                <img src="hao/images/QQ.png">腾讯</a>
+                        </td>
+                        <td>
+                            <a href="http://i.ifeng.com/">
+                                <img src="hao/images/fenghuang.png">凤凰</a>
+                        </td>
+                        <td>
+                            <a href="http://m.baidu.com/">
+                                <img src="hao/images/baidu.png">百度</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="http://m.taobao.com/">
+                                <img src="hao/images/taobao.png">淘宝</a>
+                        </td>
+                        <td>
+                            <a href="http://m.jd.com/">
+                                <img src="hao/images/jingdong.png">京东</a>
+                        </td>
+                        <td>
+                            <a href="http://3g.cn/?fr=x360index">
+                                <img src="hao/images/3G.png">3G门户</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-bordered drdwif-contentnav">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="http://i.meituan.com/xian?utm_source=waputm_360fl&utm_medium=wap&filter=filter~c-1%7Cb-1%7Csdefaults%7Cp1%7Cci42#%7B%22cn%22%3A%22%E5%85%A8%E9%83%A8%E5%88%86%E7%B1%BB%22%2C%22bn%22%3A%22%E5%85%A8%E5%9F%8E%22%2C%22sn%22%3A%22%E9%BB%98%E8%AE%A4%E6%8E%92%E5%BA%8F%22%7D">
+                                美团</a>
+                        </td>
+                        <td>
+                            <a href="http://m.nuomi.com/">糯米</a>
+                        </td>
+                        <td>
+                            <a href="http://ju.m.taobao.com/jhs/index.htm?ttid=1136l004">聚划算</a>
+                        </td>
+                        <td>
+                            <a href="http://m.dianping.com/tuan?utm_source=app_360a">大众点评</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="http://m.vancl.com/">凡客</a>
+                        </td>
+                        <td>
+                            <a href="http://m.51buy.com/t/">易迅</a>
+                        </td>
+                        <td>
+                            <a href="http://m.dangdang.com/">当当</a>
+                        </td>
+                        <td>
+                            <a href="http://www.amazon.cn/ref=z_cn?tag=zcn0e-23">亚马逊</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="http://bj.58.com/?refrom=m58?utm_source=d_hao123&spm=123-mingzhan-1010">58</a>
+                        </td>
+                        <td>
+                            <a href="http://wap.ganji.com/?ca_name=zhuzhan2wap_index_">赶集</a>
+                        </td>
+                        <td>
+                            <a href="http://m.ctrip.com/html5/?allianceid=1630&sid=436793">携程</a>
+                        </td>
+                        <td>
+                            <a href="http://wap.qunar.com/?bd_source=hao123">去哪儿</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="row drdwifi-jg">
+                <div class="drdwif-menu">
+                    <p class="pull-left drddh-menu">
+                        更多</p>
+                </div>
+            </div>
+        </div>
+        <div class="drdwifi-footnav">
+            <dl class="list-unstyled clearfix">
+                <dt>视频</dt><dd><a href="http://www.youku.com/">优酷</a></dd><dd><a href="http://www.tudou.com/">土豆</a></dd><dd><a
+                    href="http://www.iqiyi.com/?msrc=1_40_66">爱奇艺</a></dd><dd><a href="http://m.pptv.com/">PPTV</a></dd></dl>
+            <dl class="list-unstyled clearfix">
+                <dt>音乐</dt><dd><a href="http://m.y.qq.com/?ADTAG=3gqqmusic">QQ</a></dd><dd><a href="http://m.kugou.com/">酷狗</a></dd><dd><a
+                    href="http://m.kugou.com/">虾米</a></dd><dd><a href="http://m.kuwo.cn/?f=360sj">酷我</a></dd></dl>
+            <dl class="list-unstyled clearfix">
+                <dt>微博</dt><dd><a href="https://m.weibo.cn/login?ns=1&backURL=http%3A%2F%2Fm.weibo.cn%2F&backTitle=%D0%C2%C0%CB%CE%A2%B2%A9&vt=4&#square">新浪</a></dd><dd><a
+                    href="http://pt.3g.qq.com/s?aid=touchLogin&t=weibo&bid_code=microblogLogin&g_ut=3&go_url=">腾讯</a></dd><dd><a
+                        href="http://t.ifeng.com/">凤凰</a></dd><dd><a href="http://w.sohu.com/t2/jingxuan.do?suv=100784303278349">搜狐</a></dd></dl>
+            <dl class="list-unstyled clearfix">
+                <dt>银行</dt><dd><a href="http://wap.icbc.com.cn/">工行</a></dd><dd><a href="http://m.ccb.com/cn/mobile/index.html">建行</a></dd><dd><a
+                    href="https://mobile.cmbchina.com/MobileHtml/Login/LoginA.aspx">招行</a></dd><dd><a
+                        href="http://www.95559.com.cn/BankCommSite/cn/default.html">交行</a></dd></dl>
+            <dl class="list-unstyled clearfix">
+                <dt>邮箱</dt><dd><a href="http://m.mail.163.com/">163</a></dd><dd><a href="http://wapmail.10086.cn/">139</a></dd><dd><a
+                    href="http://m.mail.163.com/login.s?domain=126.com&autologin=0&keyfrom=login126">126</a></dd><dd><a
+                        href="https://w.mail.qq.com/cgi-bin/loginpage">QQ</a></dd></dl>
+            <dl class="list-unstyled clearfix">
+                <dt>科技</dt><dd><a href="http://info.3g.qq.com/g/s?sid=AYhOeXnJiCkiclPwxAhKyIca&aid=template&tid=tech_h">腾讯</a></dd><dd><a
+                    href="http://m.36kr.com/">36氪</a></dd><dd><a href="http://m.sohu.com/c/7/">搜狐</a></dd><dd><a
+                        href="http://3g.leiphone.com/">雷锋</a></dd></dl>
+            <dl class="list-unstyled clearfix">
+                <dt>军事</dt><dd><a href="http://3g.xinruijunshi.com/?f=360wap">新锐</a></dd><dd><a href="http://m.tiexue.net/touch/?from=q360">铁血</a></dd><dd><a
+                    href="http://i.ifeng.com/mil/mili?mid=ajelBt&ch=llq_360js&vt=5">凤凰</a></dd><dd><a
+                        href="http://m.xinjunshi.com/">新军事</a></dd></dl>
+            <dl class="list-unstyled clearfix">
+                <dt>体育</dt><dd><a href="http://3g.163.com/sports/">网易</a></dd><dd><a href="http://m.hupu.com/nba/">虎扑</a></dd><dd><a
+                    href="http://m.hupu.com/soccer">足球</a></dd><dd><a href="http://m.sohu.com/cl/142/">品乓</a></dd></dl>
+        </div>
+    </div>
+</body>

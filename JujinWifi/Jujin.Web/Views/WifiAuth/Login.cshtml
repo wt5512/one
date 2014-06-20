@@ -1,0 +1,10 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Login-聚金软件";
+}
+<h2>手机登录</h2>
+<form method="get" action="/wifiauth/loginformobile">
+<input type="text" placeholder="输入手机号码" name="mobile" class="common-text">
+<input type="submit" value="免费开启上网" />
+</form>
+<a href="/wifiauth/LoginForWeibo">微博登录</a>

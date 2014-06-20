@@ -1,0 +1,53 @@
+﻿@{
+    Layout = "~/Views/Shared/Mobile_Layout.cshtml";
+    ViewBag.Title = "Portal-聚金软件";
+    string redirect_url = "";
+    Jujin.Dao.DataWifiDataContext db = new Jujin.Dao.DataWifiDataContext();
+    string gw_id = Request.QueryString["gw_id"];//设备号
+    if (!string.IsNullOrEmpty(gw_id))
+    {
+        var merchant = (from a in db.wifi_merchant join b in db.wifi_device on a.id equals b.merchant_id where b.gw_id == gw_id select a).SingleOrDefault();
+        ViewBag.merchant = merchant;
+        if (merchant != null)
+        {
+            if (!string.IsNullOrEmpty(merchant.template_name))
+            {
+                redirect_url = "/Template/" + merchant.template_name + "/Portal.aspx?merchant_id=" + merchant.id;
+            }
+            else
+            {
+                redirect_url = "/Template/Default/Portal.aspx";
+            }
+        }
+    }
+    
+}
+<div id="loading">
+  <div class="fluid wrapper test transition">
+  	<h1 id="logo" class="test"><img class="lo_ico" src="/img/internet.png"></h1>
+  	<div class="notecont transition">
+      <h2>
+      设备初始化！<span id="time"> </span>秒
+      </h2>
+  	</div>
+    <div id="footer">
+      <p>聚金软件</p>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+    var s = 6;
+    var t = setInterval(function () {
+        if (s < 0) {
+
+            window.location.href = "@Html.Raw(redirect_url)";
+            clearInterval(t);
+        }
+        else {
+            $("#time").html(s);
+        }
+        s--;
+    }, 1000);
+</script>
+

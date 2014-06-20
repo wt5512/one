@@ -1,0 +1,130 @@
+﻿@{
+    Layout = "~/Views/Shared/Merchant_Layout.cshtml";
+    ViewBag.Title = "商家后台";
+
+    Jujin.Dao.wifi_merchant merchant = Jujin.Web.JujinContext.GetCurrentMerchant();
+
+}
+@{Html.RenderPartial("UC_Top_Merchant");}
+@{Html.RenderPartial("UC_Left_Merchant");}
+<div class="content">
+    <div class="container-fluid">
+        <div id="pad-wrapper" class="settings-wrapper">
+            <ul class="breadcrumb">
+                <li><a href="/merchant">首页</a> <span class="divider">/</span></li>
+                <li class="active">我的模板</li>
+            </ul>
+            <!-- avatar column -->
+            <!-- edit form column -->
+            <div class="personal-info">
+                <div style="margin-bottom: 5px; width: 94%;" class="alert alert-info">
+                    <i class="icon-lightbulb">欢迎登录 <strong>@merchant.merchant_name</strong> 管理中心！</i>
+                </div>
+                <div class="clearfix ">
+                </div>
+            </div>
+            <div class="personal-info ad_add" style="width: 95%;">
+                <blockquote class="pull-left" style="width: 100%;">
+                    <p>
+                        我的模板</p>
+                </blockquote>
+                @foreach (Jujin.Dao.wifi_template temp in ViewBag.template_list)
+                {
+                    <div class="ad_theme_box" style="height: 360px;">
+                        <div class="ad_theme_box_img" style="position:relative;">
+                                <img src="/template/@temp.template_name/view.jpg" style="width:240px;height:320px;"/>
+                                @if (merchant.template_name.ToLower() == temp.template_name.ToLower())
+                                {
+                                 <div class="c-con-use">
+                                <div class="c"></div>
+                                <div class="c-text">正在使用</div>
+                                </div>
+                                }
+                            <div class="c-con">
+                            <div class="c"></div>
+                            <div class="c-text">
+                            <a class="btn-glow primary" href="templateeditor?template_name=@temp.template_name">编辑</a><br />
+                            <a class="btn-glow primary" target="_blank" href="templatepreview?template_name=@temp.template_name">预览</a><br />
+                            <a class="btn-glow primary apply" href="templateapply?template_name=@temp.template_name">应用</a><br />
+                            <a class="btn-glow primary del" href="templatedel?template_name=@temp.template_name">删除</a><br />
+                            </div>
+                            </div>
+                        </div>
+                        <div class="ad_theme_tplname" style="margin-top: 10px;">
+                            <a href="templateeditor?template_name=@temp.template_name">@temp.template_name</a>
+                        </div>
+                            
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<style type="text/css">
+.c
+{
+    position:absolute;
+    height:100%;
+    width:100%;
+    z-index:100px;
+    top:0;
+    filter:alpha(opacity=40);opacity:0.4 ;
+    background:#000;
+}
+.c-text
+{
+    top:0;
+    height:100%;
+    width:100%;
+    text-align:center;
+    color:#FFFFFF;
+    font-size:20px;
+    font-weight:bold;
+    padding-top:20px;
+    position:absolute;
+}
+.c-text a{display:block;margin:6px auto;width:100px;}
+.c-con{display:none;}
+</style>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".apply").each(function () {
+            $(this).click(function () {
+                $.get($(this).attr("href"), function (data) {
+                    if (data != "ok") {
+                        alert(data);
+                    }
+                    else {
+                        alert("模版应用成功!");
+                        window.location = window.location;
+                    }
+                });
+                return false
+            });
+        });
+        $(".del").each(function () {
+            $(this).click(function () {
+                if (confirm("确定要删除该模板吗？")) {
+                    $.get($(this).attr("href"), function (data) {
+                        if (data != "ok") {
+                            alert(data);
+                        }
+                        else {
+                            alert("删除模板成功!");
+                            window.location = window.location;
+                        }
+                    });
+                }
+                return false
+            });
+        });
+
+        $(".ad_theme_box_img").hover(function () {
+            $(this).find(".c-con").show();
+            $(this).find(".c-con-use").hide();
+        }, function () {
+            $(this).find(".c-con").hide();
+            $(this).find(".c-con-use").show();
+        });
+    });
+</script>

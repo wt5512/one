@@ -1,0 +1,171 @@
+﻿@{
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+    ViewBag.Title = "添加商家";
+
+    Jujin.Dao.wifi_merchant merchant = ViewBag.merchant ?? new Jujin.Dao.wifi_merchant();
+}
+@{Html.RenderPartial("UC_Top");}
+@{Html.RenderPartial("UC_Left");}
+<div class="content">
+    <div class="container-fluid">
+        <div id="pad-wrapper" class="settings-wrapper">
+            <ul class="breadcrumb">
+                <li><a href="/">首页</a> <span class="divider">/</span></li>
+                <li>商家管理 <span class="divider">/</span></li>
+                <li class="active">添加商家</li>
+            </ul>
+            <!-- avatar column -->
+            <!-- edit form column -->
+            <div class="personal-info">
+                <div style="margin-bottom: 5px; width: 94%;" class="alert alert-info">
+                    <i class="icon-lightbulb">您可以在这里<strong>添加商家信息</strong>,您也可以返回
+                    <strong><a href="/admin/merchantlist">商家列表</a></strong></i>
+                </div>
+                <div class="clearfix ">
+                </div>
+                <form enctype="multipart/form-data" accept-charset="utf-8" method="post">
+                <blockquote>
+                    <p>
+                        基本信息</p>
+                </blockquote>
+                <div class="field-box">
+                    <label>
+                        <i class="icon-desktop"></i>商家名称：<span class="label label-important">*</span></label>
+                    <input type="text" placeholder="商家名称" class="span4 inline-input" value="@merchant.merchant_name" name="merchant_name">
+                </div>
+                <div class="clearfix ">
+                </div>
+                <div class="field-box narrow-box">
+                    <label>
+                        <i class="icon-user"></i>联系人：<span class="label label-important">*</span></label>
+                    <input type="text" placeholder="联系人姓名" class="inline-input span3" value="@merchant.contact_name" name="contact_name">
+                </div>
+                <div class="field-box narrow-box">
+                    <label>
+                        <i class="icon-phone"></i>联系电话：<span class="label label-important">*</span></label>
+                    <input type="text" placeholder="联系人手机/电话" class="span3 inline-input" value="@merchant.contact_phone" name="contact_phone">
+                </div>
+                <div class="clearfix ">
+                </div>
+                <div class="field-box">
+                    <label>
+                        <i class="icon-map-marker icon-large"></i>地址信息：<span class="label label-important">*</span></label>
+                    <input type="text" placeholder="省份" class="span2 inline-input" value="@merchant.province" name="province">
+                    <input type="text" placeholder="城市" class="span2 inline-input" value="@merchant.city" name="city">
+                    <input type="text" placeholder="区/县" class="span2 inline-input" value="@merchant.area" name="area">
+                    <input type="text" placeholder="街道地址" class="span4 inline-input" value="@merchant.address_info" name="address_info">
+                </div>
+                <div class="clearfix ">
+                </div>
+                <div class="field-box">
+                    <label>
+                        <i class="icon-map-marker icon-large"></i>地图：<span class="label label-important">*</span></label>
+                    <input type="hidden" placeholder="经度" class="span2 inline-input" value="@merchant.longitude" name="longitude" id="lng">
+                    <input type="hidden" placeholder="纬度" class="span2 inline-input" value="@merchant.latitude" name="latitude" id="lat">
+                    请在下面的地图中点击确定位置
+                    <div id="l-map" style="width:600px;height:500px;"></div>
+                </div>
+                <div class="clearfix ">
+                </div>
+                
+                
+                <blockquote>
+                    <p>
+                        设置信息</p>
+                </blockquote>
+
+                <div class="field-box narrow-box">
+                    <label>
+                        用户名：</label>
+                    <input type="text" placeholder="登录用户名" class="span3 inline-input" value="@merchant.username" name="username">
+                </div>
+                <div class="field-box narrow-box">
+                    <label>
+                        密码：</label>
+                    <input type="password" placeholder="登录密码" class="span3 inline-input" value="" name="user_password">
+                </div>
+                <div class="clearfix ">
+                </div>
+                <div class="field-box narrow-box">
+                    <label>
+                        上网时长：</label>
+                    <input type="text" placeholder="上网时长" class="span3 inline-input" value="@(merchant.surfing_time==0?2:merchant.surfing_time)" name="surfing_time">
+                </div>
+                <div class="field-box narrow-box" style="display:none;">
+                    <label>
+                        有效登录间隔：</label>
+                    <input type="text" placeholder="有效登录间隔" class="span3 inline-input" value="@(merchant.time_interval==0?24:merchant.time_interval)" name="time_interval">
+                </div>
+                <div class="clearfix ">
+                </div>
+                <div class="field-box">
+                    <label>
+                        认证方式：<span class="label label-important">*</span></label>
+                    <ul id="auth_type">
+                        <li><input type="checkbox" name="auth_type" value="0" @(("," + merchant.auth_type + ",").Contains(",0,") ? "checked" : "") id="c0"/><label for="c0"><img src="/img/no.png" />无需认证</label></li>
+                        <li><input type="checkbox" name="auth_type" value="1" @(("," + merchant.auth_type + ",").Contains(",1,") ? "checked" : "") id="c1"/><label for="c1"><img src="/img/phone.png" />手机号</label></li>
+                        <li><input type="checkbox" name="auth_type" value="2" @(("," + merchant.auth_type + ",").Contains(",2,") ? "checked" : "") id="c2"/><label for="c2"><img src="/img/sms.png" />手机号加短信</label></li>
+                        <li><input type="checkbox" name="auth_type" value="3" @(("," + merchant.auth_type + ",").Contains(",3,") ? "checked" : "") id="c3"/><label for="c3"><img src="/img/weixin.png" />微信认证</label></li>
+                        <li><input type="checkbox" name="auth_type" value="4" @(("," + merchant.auth_type + ",").Contains(",4,") ? "checked" : "") id="c4"/><label for="c4"><img src="/img/sina.png" />微博认证</label><span>微博ID：<input type="text" name="weibo_id" value="@merchant.weibo_id"/></span></li>
+                        <li><input type="checkbox" name="auth_type" value="5" @(("," + merchant.auth_type + ",").Contains(",5,") ? "checked" : "") id="c5"/><label for="c5"><img src="/img/qq.png" />QQ认证</label><span>腾讯微博账户名：<input type="text" name="qq_weibo" value="@merchant.qq_weibo"/></span></li>
+                        </ul>
+                    <script type="text/javascript">
+                        if ($("#c0").attr("checked")) {
+                            $("#auth_type input[type=checkbox]").attr("checked", false).attr("disabled", "disabled");
+                            $("#c0").attr("disabled", "").attr("checked", true);
+                        }
+                        $("#c0").change(function () {
+                            if ($(this).attr("checked")) {
+                                $("#auth_type input[type=checkbox]").attr("checked", false).attr("disabled", "disabled");
+                                $(this).attr("disabled", "").attr("checked", true);
+                            }
+                            else {
+                                $("#auth_type input[type=checkbox]").attr("checked", false).attr("disabled", "");
+                                $(this).attr("checked", false);
+                            }
+                        });
+
+                        $("#c1").change(function () {
+                            if ($(this).attr("checked")) {
+                                $("#c2").attr("checked", false);
+                            }
+                        });
+                        $("#c2").change(function () {
+                            if ($(this).attr("checked")) {
+                                $("#c1").attr("checked", false);
+                            }
+                        });
+                        
+                    </script>
+                </div>
+                <div class="clearfix ">
+                </div>
+                <div class="span8 field-box actions">
+                    <input type="submit" class="btn-glow primary login" value="添加" name="submit">
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=2E33DDBa119a6a7b56d4e6b75330475b"></script>
+<script type="text/javascript">
+
+    // 百度地图API功能
+    var map = new BMap.Map("l-map");
+    map.centerAndZoom("西安",12);                   // 初始化地图,设置城市和地图级别。
+    map.enableScrollWheelZoom();                          //启用滚轮放大缩小
+
+    var marker = new BMap.Marker(new BMap.Point(@(merchant.longitude??0), @(merchant.latitude??0)));  // 创建标注
+    map.addOverlay(marker);              // 将标注添加到地图中
+    marker.enableDragging();    //可拖拽
+    marker.addEventListener("dragend", function (e) {
+        $("#lng").val(e.point.lng);
+        $("#lat").val(e.point.lat);
+    });
+    map.addEventListener("click", function (e) {
+        marker.setPosition(new BMap.Point(e.point.lng, e.point.lat))
+        $("#lng").val(e.point.lng);
+        $("#lat").val(e.point.lat);
+    }) 
+</script>

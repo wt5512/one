@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 12, 18.375" name="DataWifi">
+  <DataContextMoniker Name="/DataWifiDataContext" />
+  <nestedChildShapes>
+    <classShape Id="1de82625-123e-49e1-8a5e-828715680eb6" absoluteBounds="3.75, 0.75, 2, 2.0916874186197916">
+      <DataClassMoniker Name="/DataWifiDataContext/wifi_ping" />
+      <nestedChildShapes>
+        <elementListCompartment Id="dfc5c0de-648f-4dac-b99c-b6f2bcd43bdc" absoluteBounds="3.765, 1.21, 1.9700000000000002, 1.5316874186197915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a0cb5d7a-4fbe-4c28-a2e1-e2749c06ce26" absoluteBounds="3.75, 3.75, 2, 2.6460697428385416">
+      <DataClassMoniker Name="/DataWifiDataContext/wifi_connection" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2b56cd26-2ed7-4223-953b-8f5c98c46c1b" absoluteBounds="3.765, 4.21, 1.9700000000000002, 2.0860697428385415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="25d67006-d3da-4355-beaf-05dc2a6bd0b6" absoluteBounds="6.75, 0.75, 2, 2.8308638509114576">
+      <DataClassMoniker Name="/DataWifiDataContext/wifi_coupon" />
+      <nestedChildShapes>
+        <elementListCompartment Id="690b8486-4ee8-48a3-b7af-6efda0afeb0a" absoluteBounds="6.765, 1.21, 1.9700000000000002, 2.270863850911458" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="822b9c4c-fdfa-4e34-895b-08f326c4cd75" absoluteBounds="6.75, 4.75, 2, 2.2764815266927094">
+      <DataClassMoniker Name="/DataWifiDataContext/wifi_device" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8ccbc893-54d9-40bb-8172-f9eee8c31035" absoluteBounds="6.765, 5.21, 1.9700000000000002, 1.7164815266927085" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3ff89dea-3991-47b5-9baa-2f27ab56faa7" absoluteBounds="3.75, 8.75, 2, 1.3525109863281237">
+      <DataClassMoniker Name="/DataWifiDataContext/wifi_guest_group" />
+      <nestedChildShapes>
+        <elementListCompartment Id="04963cad-3819-4f95-af70-64c01e5c22e7" absoluteBounds="3.765, 9.21, 1.9700000000000002, 0.792510986328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a5f7c26f-98d5-4315-b676-23165984a8ea" absoluteBounds="9.75, 0.75, 2, 2.4612756347656255">
+      <DataClassMoniker Name="/DataWifiDataContext/wifi_messgerecord" />
+      <nestedChildShapes>
+        <elementListCompartment Id="589f76c1-e817-4e8a-bd51-68c93186a060" absoluteBounds="9.765, 1.21, 1.9700000000000002, 1.901275634765625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fe808b43-28fd-4ac7-b6da-2304cef8b3a0" absoluteBounds="1.25, 4.5, 2, 2.0916874186197916">
+      <DataClassMoniker Name="/DataWifiDataContext/wifi_admin" />
+      <nestedChildShapes>
+        <elementListCompartment Id="941e2890-29d3-4267-a325-cfd5f943e90e" absoluteBounds="1.2650000000000001, 4.96, 1.9700000000000002, 1.5316874186197915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="70c80d2d-225c-4ad3-8fce-3d43c33616d8" absoluteBounds="3.625, 10.625, 2, 2.0916874186197916">
+      <DataClassMoniker Name="/DataWifiDataContext/wifi_template" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f886f0a5-9e12-4793-a0fb-e4eed5d1e7b2" absoluteBounds="3.64, 11.085, 1.9700000000000002, 1.5316874186197915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="de819571-abc0-4de2-b13a-e6f9feaba86b" absoluteBounds="0.75, 12.25, 2, 1.5373050944010416">
+      <DataClassMoniker Name="/DataWifiDataContext/wifi_blacklist" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b9b1f7a9-7094-49c3-950b-bddc90778bd2" absoluteBounds="0.76500000000000012, 12.71, 1.9700000000000002, 0.97730509440104174" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e4ca7471-d9a9-4884-9754-a95d6ecb944a" absoluteBounds="3.5, 13.125, 2, 5.0483931477864576">
+      <DataClassMoniker Name="/DataWifiDataContext/wifi_merchant" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c8a92d46-aa9b-4240-bdb1-b8a603b7f70b" absoluteBounds="3.5149999999999997, 13.585, 1.9700000000000002, 4.488393147786458" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dd8ea623-8615-4ab4-82b0-282dcf35a041" absoluteBounds="0.625, 6.75, 2, 4.8635990397135407">
+      <DataClassMoniker Name="/DataWifiDataContext/wifi_guest" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ff11d6e3-2d70-4d45-ae40-d2393ac1b972" absoluteBounds="0.64000000000000012, 7.2100000000000009, 1.9700000000000002, 4.3035990397135411" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -1,0 +1,50 @@
+﻿@{ 
+    Jujin.Dao.wifi_admin admin = Jujin.Web.JujinContext.GetCurrentAdmin();    
+    
+}
+<div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <button id="menu-toggler" class="btn btn-navbar visible-phone" type="button">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+            <a href="/" class="brand"><img src="/img/logo-white.png"></a>
+            @*http://c.freewifibox.com/theme/admin*@
+            <ul class="nav pull-right">                
+                <li class="hidden-phone">
+                    <input type="text" class="search">
+                </li>
+                <!--
+                <li class="notification-dropdown hidden-phone">
+                    <a href="#" class="trigger">
+                        <i class="icon-envelope-alt"></i> 
+                          <span class="count">6</span>  
+                    </a>
+                </li>
+                 -->
+                 <li class="settings hidden-phone">
+                    <a title="帮助" role="button" href="#">
+                        <i class="icon-question-sign"></i>
+                    </a>
+                </li>
+                                <li class="dropdown">
+                                    <a data-toggle="dropdown" class="dropdown-toggle hidden-phone" href="#">@(admin.real_name+"/"+admin.user_name)<b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                    <li><a href="/admin/setting"><i class=" icon-wrench"></i> 修改密码</a></li>
+                       @*<li><a href=""><i class=" icon-user"></i> 账户信息</a></li>
+                        <li><a href=""><i class=" icon-edit"></i> 编辑账户</a></li>
+                        <li><a href=""><i class=" icon-qrcode"></i> 接口设置</a></li>
+                        <li><a href=""><i class="  icon-indent-left"></i>申请代理</a></li>*@
+                    </ul>
+                                    </li>
+                <li class="settings hidden-phone">
+                    <a title="退出" role="button" href="/admin/loginout">
+                        <i class="icon-share-alt"></i>
+                    </a>
+                </li>
+            </ul>            
+        </div>
+    </div>

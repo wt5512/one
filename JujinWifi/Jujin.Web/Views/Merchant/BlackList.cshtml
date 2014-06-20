@@ -1,0 +1,73 @@
+﻿@{
+    Layout = "~/Views/Shared/Merchant_Layout.cshtml";
+    ViewBag.Title = "商家后台";
+
+    var blacklist = ViewBag.blacklist;
+
+}
+@{Html.RenderPartial("UC_Top_Merchant");}
+@{Html.RenderPartial("UC_Left_Merchant");}
+<div class="content">
+    <div class="container-fluid">
+        <div id="pad-wrapper" class="settings-wrapper">
+            <ul class="breadcrumb">
+                <li><a href="/merchant">首页</a> <span class="divider">/</span></li>
+                <li class="active">黑名单列表</li>
+            </ul>
+            <!-- avatar column -->
+            <!-- edit form column -->
+            <div class="personal-info">
+                <div style="margin-bottom: 5px; width: 94%;" class="alert alert-info">
+                    <i class="icon-lightbulb">黑名单列表中的用户将不能连接上网！<strong><a href="/merchant/blackadd">添加黑名单</a></strong></i>
+                </div>
+                <div class="clearfix ">
+                </div>
+            </div>
+            <div>
+                <table class="table table-bordered ">
+                    <thead>
+                        <tr>
+                            <th class="span1">
+                                &nbsp;&nbsp;<i class="icon-th icon-large"></i>
+                            </th>
+                            <th class="span2">
+                                <strong>登录名</strong>
+                            </th>
+                            <th class="span2">
+                                <strong>创建时间</strong>
+                            </th>
+                            <th class="span2">
+                                <strong>操作</strong>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="responds">
+                    @if (blacklist != null)
+                    {
+                        int i = 0;
+                        foreach (var black in blacklist)
+                        {
+                            i++;
+                        <tr @(i % 2 == 0 ? "" : "style='background-color: #F7F7F9;'")>
+                            <td>
+                                <span class="badge  label-info">@(i+ViewBag.precount)</span>
+                            </td>
+                            <td>
+                                @black.login_name
+                            </td>
+                            <td>
+                                @black.create_time.ToString("yyyy-MM-dd HH:mm:ss")
+                            </td>
+                            <td>
+                                <a href="/merchant/blackdel?id=@black.id" class="btn btn-primary btn-mini">移除</a>
+                            </td>
+                        </tr>
+                        }
+                    }
+                    </tbody>
+                </table>
+                 @Html.Raw(ViewBag.pagehtml)
+            </div>
+        </div>
+    </div>
+</div>

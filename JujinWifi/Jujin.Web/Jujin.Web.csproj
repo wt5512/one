@@ -1,0 +1,675 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{94AD819F-97EA-45E4-9DD2-9D4F59D78764}</ProjectGuid>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Jujin.Web</RootNamespace>
+    <AssemblyName>Jujin.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.WebPages" />
+    <Reference Include="System.Web.Helpers" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Code\Base\TemplateBasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Code\Helper.cs" />
+    <Compile Include="Code\JujinContext.cs" />
+    <Compile Include="Code\SMSHelper.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MerchantController.cs" />
+    <Compile Include="Controllers\WifiAuthController.cs" />
+    <Compile Include="Controllers\WifidogController.cs" />
+    <Compile Include="Filter\AdminLoginFilter.cs" />
+    <Compile Include="Filter\MerchantLoginFilter.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Content Include="aspx\upfile.aspx" />
+    <Content Include="css\index.css" />
+    <Content Include="hao\css\bootstrap.min.css" />
+    <Content Include="hao\css\common.css" />
+    <Content Include="hao\images\3G.png" />
+    <Content Include="hao\images\baidu.png" />
+    <Content Include="hao\images\fenghuang.png" />
+    <Content Include="hao\images\jingdong.png" />
+    <Content Include="hao\images\QQ.png" />
+    <Content Include="hao\images\sina.png" />
+    <Content Include="hao\images\souhu.png" />
+    <Content Include="hao\images\taobao.png" />
+    <Content Include="hao\images\wangyi.png" />
+    <Content Include="hao\index.htm" />
+    <Content Include="img\no.png" />
+    <Content Include="img\phone.png" />
+    <Content Include="img\qq.png" />
+    <Content Include="img\sina.png" />
+    <Content Include="img\sms.png" />
+    <Content Include="img\weixin.png" />
+    <Content Include="js\jquery-1.4.4.min.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\net\Config.cs" />
+    <Content Include="js\ueditor1_3_6-utf8-net\net\Uploader.cs" />
+    <Compile Include="js\umeditor1_2_2-utf8-net\net\Uploader.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="wifi\css\css.css" />
+    <Content Include="wifi\css\style.css" />
+    <Content Include="wifi\images\banner_bg.jpg" />
+    <Content Include="wifi\images\bd_bannerbtn_01.png" />
+    <Content Include="wifi\images\bd_bannerphone.png" />
+    <Content Include="wifi\images\bd_bannertit.png" />
+    <Content Include="wifi\images\bd_cont_02bg.png" />
+    <Content Include="wifi\images\bd_cont_09bg.png" />
+    <Content Include="wifi\images\bd_cont_10bg.png" />
+    <Content Include="wifi\images\bd_nav_bg.png" />
+    <Content Include="wifi\images\bd_top_r_01bg.png" />
+    <Content Include="wifi\images\build_ddbg.png" />
+    <Content Include="wifi\images\build_dl_01bg.png" />
+    <Content Include="wifi\images\build_dl_02bg.png" />
+    <Content Include="wifi\images\build_dl_03bg.png" />
+    <Content Include="wifi\images\build_go.png" />
+    <Content Include="wifi\images\close2.png" />
+    <Content Include="wifi\images\cont_01_text02bg.png" />
+    <Content Include="wifi\images\cont_01_textbg.png" />
+    <Content Include="wifi\images\cont_02_rbg.png" />
+    <Content Include="wifi\images\footer_l_bg.png" />
+    <Content Include="wifi\images\footer_qqlogo.png" />
+    <Content Include="wifi\images\footer_sinalogo.png" />
+    <Content Include="wifi\images\footer_weixin.png" />
+    <Content Include="wifi\images\gain_p_01bg.png" />
+    <Content Include="wifi\images\gain_p_02bg.png" />
+    <Content Include="wifi\images\gain_p_03bg.png" />
+    <Content Include="wifi\images\gain_p_04bg.png" />
+    <Content Include="wifi\images\gain_p_04_divbg.png" />
+    <Content Include="wifi\images\img3-5_1.png" />
+    <Content Include="wifi\images\img3-5_2.png" />
+    <Content Include="wifi\images\img3-5_3.png" />
+    <Content Include="wifi\images\img3-5_4.png" />
+    <Content Include="wifi\images\laifacai.jpg" />
+    <Content Include="wifi\images\li_ptbg.png" />
+    <Content Include="wifi\images\li_ptbg2.png" />
+    <Content Include="wifi\images\li_ptbg3.png" />
+    <Content Include="wifi\images\li_ptbg4.png" />
+    <Content Include="wifi\images\logo.png" />
+    <Content Include="wifi\images\logo_sub.png" />
+    <Content Include="wifi\images\newsdote.png" />
+    <Content Include="wifi\images\pa.gif" />
+    <Content Include="wifi\images\part_001bg.jpg" />
+    <Content Include="wifi\images\part_002bg.png" />
+    <Content Include="wifi\images\part_003bg.png" />
+    <Content Include="wifi\images\part_004bg.png" />
+    <Content Include="wifi\images\part_005bg.jpg" />
+    <Content Include="wifi\images\pa_002.gif" />
+    <Content Include="wifi\images\pa_003.gif" />
+    <Content Include="wifi\images\pa_004.gif" />
+    <Content Include="wifi\images\pa_005.gif" />
+    <Content Include="wifi\images\r3.gif" />
+    <Content Include="wifi\images\scgl_add_over.jpg" />
+    <Content Include="wifi\images\teb_out_r_001.jpg" />
+    <Content Include="wifi\images\teb_out_r_002.jpg" />
+    <Content Include="wifi\images\teb_out_r_003.jpg" />
+    <Content Include="wifi\images\teb_out_r_003.png" />
+    <Content Include="wifi\images\teb_out_r_004.jpg" />
+    <Content Include="wifi\images\top-home.png" />
+    <Content Include="wifi\images\yqlj_03.png" />
+    <Content Include="wifi\images\yqlj_04.png" />
+    <Content Include="wifi\images\yqlj_06.png" />
+    <Content Include="wifi\images\yqlj_07.png" />
+    <Content Include="wifi\images\yqlj_09.png" />
+    <Content Include="wifi\images\yqlj_10.png" />
+    <Content Include="wifi\images\yqlj_11.png" />
+    <Content Include="wifi\images\yqlj_12.png" />
+    <Content Include="wifi\images\yqlj_13.png" />
+    <Content Include="wifi\images\yqlj_14.png" />
+    <Content Include="wifi\images\yqlj_15.png" />
+    <Content Include="wifi\images\yqlj_16.png" />
+    <Content Include="wifi\index.html" />
+    <Content Include="wifi\js\areaJson.js" />
+    <Content Include="wifi\js\iepng.js" />
+    <Content Include="wifi\js\jquery-1.10.2.min.js" />
+    <Content Include="wifi\js\json2select.min.js" />
+    <Content Include="wifi\js\main.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\System.Data.Linq.dll" />
+    <Content Include="css\bootstrap.custom.min.css" />
+    <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\pages.css" />
+    <Content Include="css\signin.css" />
+    <Content Include="font\fontawesome-webfont.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="img\bgs\landscape.jpg" />
+    <Content Include="img\glyphicons-halflings.png" />
+    <Content Include="img\logo-white.png" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\html5.js" />
+    <Content Include="js\jquery-latest.js" />
+    <Content Include="js\My97DatePicker\calendar.js" />
+    <Content Include="js\My97DatePicker\lang\en.js" />
+    <Content Include="js\My97DatePicker\lang\zh-cn.js" />
+    <Content Include="js\My97DatePicker\lang\zh-tw.js" />
+    <Content Include="js\My97DatePicker\skin\datePicker.gif" />
+    <Content Include="js\My97DatePicker\skin\default\datepicker.css" />
+    <Content Include="js\My97DatePicker\skin\default\img.gif" />
+    <Content Include="js\My97DatePicker\skin\WdatePicker.css" />
+    <Content Include="js\My97DatePicker\skin\whyGreen\bg.jpg" />
+    <Content Include="js\My97DatePicker\skin\whyGreen\datepicker.css" />
+    <Content Include="js\My97DatePicker\skin\whyGreen\img.gif" />
+    <Content Include="js\My97DatePicker\WdatePicker.js" />
+    <Content Include="js\theme.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\anchor\anchor.html" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\attachment\attachment.css" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\attachment\attachment.html" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\attachment\callbacks.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\attachment\fileTypeImages\icon_chm.gif" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\attachment\fileTypeImages\icon_default.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\attachment\fileTypeImages\icon_doc.gif" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\attachment\fileTypeImages\icon_exe.gif" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\attachment\fileTypeImages\icon_mp3.gif" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\attachment\fileTypeImages\icon_mv.gif" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\attachment\fileTypeImages\icon_pdf.gif" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\attachment\fileTypeImages\icon_ppt.gif" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\attachment\fileTypeImages\icon_psd.gif" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\attachment\fileTypeImages\icon_rar.gif" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\attachment\fileTypeImages\icon_txt.gif" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\attachment\fileTypeImages\icon_xls.gif" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\attachment\fileTypeMaps.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\background\background.css" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\background\background.html" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\background\background.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\charts\chart.config.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\charts\charts.css" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\charts\charts.html" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\charts\charts.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\charts\images\charts0.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\charts\images\charts1.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\charts\images\charts2.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\charts\images\charts3.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\charts\images\charts4.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\charts\images\charts5.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\emotion\emotion.css" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\emotion\emotion.html" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\emotion\emotion.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\emotion\images\0.gif" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\emotion\images\bface.gif" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\emotion\images\cface.gif" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\emotion\images\fface.gif" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\emotion\images\jxface2.gif" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\emotion\images\neweditor-tab-bg.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\emotion\images\tface.gif" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\emotion\images\wface.gif" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\emotion\images\yface.gif" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\gmap\gmap.html" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\help\help.css" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\help\help.html" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\help\help.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\image\image.css" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\image\image.html" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\image\image.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\image\images\center_focus.jpg" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\image\images\left_focus.jpg" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\image\images\none_focus.jpg" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\image\images\right_focus.jpg" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\image\imageUploader.swf" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\insertframe\insertframe.html" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\internal.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\link\link.html" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\map\map.html" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\map\show.html" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\music\music.css" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\music\music.html" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\music\music.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\preview\preview.html" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\scrawl\images\addimg.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\scrawl\images\brush.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\scrawl\images\delimg.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\scrawl\images\delimgH.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\scrawl\images\empty.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\scrawl\images\emptyH.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\scrawl\images\eraser.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\scrawl\images\redo.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\scrawl\images\redoH.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\scrawl\images\scale.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\scrawl\images\scaleH.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\scrawl\images\size.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\scrawl\images\undo.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\scrawl\images\undoH.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\scrawl\scrawl.css" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\scrawl\scrawl.html" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\scrawl\scrawl.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\searchreplace\searchreplace.html" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\searchreplace\searchreplace.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\snapscreen\snapscreen.html" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\spechars\spechars.html" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\spechars\spechars.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\table\dragicon.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\table\edittable.css" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\table\edittable.html" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\table\edittable.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\table\edittd.html" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\table\edittip.html" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\tangram.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\template\config.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\template\images\bg.gif" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\template\images\pre0.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\template\images\pre1.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\template\images\pre2.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\template\images\pre3.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\template\images\pre4.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\template\template.css" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\template\template.html" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\template\template.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\video\callbacks.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\video\images\center_focus.jpg" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\video\images\left_focus.jpg" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\video\images\none_focus.jpg" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\video\images\right_focus.jpg" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\video\video.css" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\video\video.html" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\video\video.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\webapp\webapp.html" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\wordimage\fClipboard_ueditor.swf" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\wordimage\imageUploader.swf" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\wordimage\wordimage.html" />
+    <Content Include="js\ueditor1_3_6-utf8-net\dialogs\wordimage\wordimage.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\index.html" />
+    <Content Include="js\ueditor1_3_6-utf8-net\lang\en\en.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\lang\en\images\addimage.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\lang\en\images\alldeletebtnhoverskin.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\lang\en\images\alldeletebtnupskin.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\lang\en\images\background.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\lang\en\images\button.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\lang\en\images\copy.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\lang\en\images\deletedisable.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\lang\en\images\deleteenable.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\lang\en\images\imglabel.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\lang\en\images\listbackground.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\lang\en\images\localimage.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\lang\en\images\music.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\lang\en\images\rotateleftdisable.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\lang\en\images\rotateleftenable.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\lang\en\images\rotaterightdisable.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\lang\en\images\rotaterightenable.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\lang\en\images\upload.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\lang\zh-cn\images\copy.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\lang\zh-cn\images\imglabel.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\lang\zh-cn\images\localimage.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\lang\zh-cn\images\music.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\lang\zh-cn\images\upload.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\lang\zh-cn\zh-cn.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\themes\default\css\ueditor.css" />
+    <Content Include="js\ueditor1_3_6-utf8-net\themes\default\css\ueditor.min.css" />
+    <Content Include="js\ueditor1_3_6-utf8-net\themes\default\dialogbase.css" />
+    <Content Include="js\ueditor1_3_6-utf8-net\themes\default\images\anchor.gif" />
+    <Content Include="js\ueditor1_3_6-utf8-net\themes\default\images\arrow.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\themes\default\images\arrow_down.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\themes\default\images\arrow_up.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\themes\default\images\button-bg.gif" />
+    <Content Include="js\ueditor1_3_6-utf8-net\themes\default\images\cancelbutton.gif" />
+    <Content Include="js\ueditor1_3_6-utf8-net\themes\default\images\charts.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\themes\default\images\cursor_h.gif" />
+    <Content Include="js\ueditor1_3_6-utf8-net\themes\default\images\cursor_h.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\themes\default\images\cursor_v.gif" />
+    <Content Include="js\ueditor1_3_6-utf8-net\themes\default\images\cursor_v.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\themes\default\images\dialog-title-bg.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\themes\default\images\filescan.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\themes\default\images\highlighted.gif" />
+    <Content Include="js\ueditor1_3_6-utf8-net\themes\default\images\icons-all.gif" />
+    <Content Include="js\ueditor1_3_6-utf8-net\themes\default\images\icons.gif" />
+    <Content Include="js\ueditor1_3_6-utf8-net\themes\default\images\icons.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\themes\default\images\lock.gif" />
+    <Content Include="js\ueditor1_3_6-utf8-net\themes\default\images\neweditor-tab-bg.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\themes\default\images\pagebreak.gif" />
+    <Content Include="js\ueditor1_3_6-utf8-net\themes\default\images\scale.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\themes\default\images\sortable.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\themes\default\images\spacer.gif" />
+    <Content Include="js\ueditor1_3_6-utf8-net\themes\default\images\sparator_v.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\themes\default\images\table-cell-align.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\themes\default\images\tangram-colorpicker.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\themes\default\images\toolbar_bg.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\themes\default\images\unhighlighted.gif" />
+    <Content Include="js\ueditor1_3_6-utf8-net\themes\default\images\upload.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\themes\default\images\videologo.gif" />
+    <Content Include="js\ueditor1_3_6-utf8-net\themes\default\images\word.gif" />
+    <Content Include="js\ueditor1_3_6-utf8-net\themes\default\images\wordpaste.png" />
+    <Content Include="js\ueditor1_3_6-utf8-net\themes\iframe.css" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\codemirror\codemirror.css" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\codemirror\codemirror.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\highcharts\adapters\mootools-adapter.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\highcharts\adapters\mootools-adapter.src.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\highcharts\adapters\prototype-adapter.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\highcharts\adapters\prototype-adapter.src.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\highcharts\adapters\standalone-framework.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\highcharts\adapters\standalone-framework.src.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\highcharts\highcharts-more.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\highcharts\highcharts-more.src.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\highcharts\highcharts.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\highcharts\highcharts.src.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\highcharts\modules\annotations.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\highcharts\modules\annotations.src.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\highcharts\modules\canvas-tools.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\highcharts\modules\canvas-tools.src.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\highcharts\modules\data.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\highcharts\modules\data.src.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\highcharts\modules\drilldown.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\highcharts\modules\drilldown.src.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\highcharts\modules\exporting.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\highcharts\modules\exporting.src.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\highcharts\modules\funnel.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\highcharts\modules\funnel.src.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\highcharts\modules\heatmap.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\highcharts\modules\heatmap.src.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\highcharts\modules\map.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\highcharts\modules\map.src.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\highcharts\modules\no-data-to-display.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\highcharts\modules\no-data-to-display.src.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\highcharts\themes\dark-blue.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\highcharts\themes\dark-green.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\highcharts\themes\gray.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\highcharts\themes\grid.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\highcharts\themes\skies.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\jquery-1.10.2.min.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\snapscreen\UEditorSnapscreen.exe" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\swfupload\fileprogress.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\swfupload\swfupload.cookies.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\swfupload\swfupload.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\swfupload\swfupload.proxy.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\swfupload\swfupload.queue.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\swfupload\swfupload.speed.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\swfupload\swfupload.swf" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\swfupload\swfupload_fp9.swf" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\SyntaxHighlighter\shCore.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\SyntaxHighlighter\shCoreDefault.css" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\video-js\font\vjs.svg" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\video-js\video-js.css" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\video-js\video-js.min.css" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\video-js\video-js.swf" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\video-js\video.dev.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\third-party\video-js\video.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\ueditor.all.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\ueditor.all.min.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\ueditor.config.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\ueditor.parse.js" />
+    <Content Include="js\ueditor1_3_6-utf8-net\ueditor.parse.min.js" />
+    <Content Include="js\umeditor1_2_2-utf8-net\dialogs\emotion\emotion.css" />
+    <Content Include="js\umeditor1_2_2-utf8-net\dialogs\emotion\emotion.js" />
+    <Content Include="js\umeditor1_2_2-utf8-net\dialogs\emotion\images\0.gif" />
+    <Content Include="js\umeditor1_2_2-utf8-net\dialogs\emotion\images\bface.gif" />
+    <Content Include="js\umeditor1_2_2-utf8-net\dialogs\emotion\images\cface.gif" />
+    <Content Include="js\umeditor1_2_2-utf8-net\dialogs\emotion\images\fface.gif" />
+    <Content Include="js\umeditor1_2_2-utf8-net\dialogs\emotion\images\jxface2.gif" />
+    <Content Include="js\umeditor1_2_2-utf8-net\dialogs\emotion\images\neweditor-tab-bg.png" />
+    <Content Include="js\umeditor1_2_2-utf8-net\dialogs\emotion\images\tface.gif" />
+    <Content Include="js\umeditor1_2_2-utf8-net\dialogs\emotion\images\wface.gif" />
+    <Content Include="js\umeditor1_2_2-utf8-net\dialogs\emotion\images\yface.gif" />
+    <Content Include="js\umeditor1_2_2-utf8-net\dialogs\formula\formula.css" />
+    <Content Include="js\umeditor1_2_2-utf8-net\dialogs\formula\formula.html" />
+    <Content Include="js\umeditor1_2_2-utf8-net\dialogs\formula\formula.js" />
+    <Content Include="js\umeditor1_2_2-utf8-net\dialogs\formula\images\formula.png" />
+    <Content Include="js\umeditor1_2_2-utf8-net\dialogs\image\image.css" />
+    <Content Include="js\umeditor1_2_2-utf8-net\dialogs\image\image.js" />
+    <Content Include="js\umeditor1_2_2-utf8-net\dialogs\image\images\close.png" />
+    <Content Include="js\umeditor1_2_2-utf8-net\dialogs\image\images\upload1.png" />
+    <Content Include="js\umeditor1_2_2-utf8-net\dialogs\image\images\upload2.png" />
+    <Content Include="js\umeditor1_2_2-utf8-net\dialogs\link\link.js" />
+    <Content Include="js\umeditor1_2_2-utf8-net\dialogs\map\map.html" />
+    <Content Include="js\umeditor1_2_2-utf8-net\dialogs\map\map.js" />
+    <Content Include="js\umeditor1_2_2-utf8-net\dialogs\video\images\center_focus.jpg" />
+    <Content Include="js\umeditor1_2_2-utf8-net\dialogs\video\images\left_focus.jpg" />
+    <Content Include="js\umeditor1_2_2-utf8-net\dialogs\video\images\none_focus.jpg" />
+    <Content Include="js\umeditor1_2_2-utf8-net\dialogs\video\images\right_focus.jpg" />
+    <Content Include="js\umeditor1_2_2-utf8-net\dialogs\video\video.css" />
+    <Content Include="js\umeditor1_2_2-utf8-net\dialogs\video\video.js" />
+    <Content Include="js\umeditor1_2_2-utf8-net\index.html" />
+    <Content Include="js\umeditor1_2_2-utf8-net\lang\en\en.js" />
+    <Content Include="js\umeditor1_2_2-utf8-net\lang\en\images\addimage.png" />
+    <Content Include="js\umeditor1_2_2-utf8-net\lang\en\images\alldeletebtnhoverskin.png" />
+    <Content Include="js\umeditor1_2_2-utf8-net\lang\en\images\alldeletebtnupskin.png" />
+    <Content Include="js\umeditor1_2_2-utf8-net\lang\en\images\background.png" />
+    <Content Include="js\umeditor1_2_2-utf8-net\lang\en\images\button.png" />
+    <Content Include="js\umeditor1_2_2-utf8-net\lang\en\images\copy.png" />
+    <Content Include="js\umeditor1_2_2-utf8-net\lang\en\images\deletedisable.png" />
+    <Content Include="js\umeditor1_2_2-utf8-net\lang\en\images\deleteenable.png" />
+    <Content Include="js\umeditor1_2_2-utf8-net\lang\en\images\imglabel.png" />
+    <Content Include="js\umeditor1_2_2-utf8-net\lang\en\images\listbackground.png" />
+    <Content Include="js\umeditor1_2_2-utf8-net\lang\en\images\localimage.png" />
+    <Content Include="js\umeditor1_2_2-utf8-net\lang\en\images\music.png" />
+    <Content Include="js\umeditor1_2_2-utf8-net\lang\en\images\rotateleftdisable.png" />
+    <Content Include="js\umeditor1_2_2-utf8-net\lang\en\images\rotateleftenable.png" />
+    <Content Include="js\umeditor1_2_2-utf8-net\lang\en\images\rotaterightdisable.png" />
+    <Content Include="js\umeditor1_2_2-utf8-net\lang\en\images\rotaterightenable.png" />
+    <Content Include="js\umeditor1_2_2-utf8-net\lang\en\images\upload.png" />
+    <Content Include="js\umeditor1_2_2-utf8-net\lang\zh-cn\images\copy.png" />
+    <Content Include="js\umeditor1_2_2-utf8-net\lang\zh-cn\images\imglabel.png" />
+    <Content Include="js\umeditor1_2_2-utf8-net\lang\zh-cn\images\localimage.png" />
+    <Content Include="js\umeditor1_2_2-utf8-net\lang\zh-cn\images\music.png" />
+    <Content Include="js\umeditor1_2_2-utf8-net\lang\zh-cn\images\upload.png" />
+    <Content Include="js\umeditor1_2_2-utf8-net\lang\zh-cn\zh-cn.js" />
+    <Content Include="js\umeditor1_2_2-utf8-net\themes\default\css\umeditor.css" />
+    <Content Include="js\umeditor1_2_2-utf8-net\themes\default\css\umeditor.min.css" />
+    <Content Include="js\umeditor1_2_2-utf8-net\themes\default\images\caret.png" />
+    <Content Include="js\umeditor1_2_2-utf8-net\themes\default\images\close.png" />
+    <Content Include="js\umeditor1_2_2-utf8-net\themes\default\images\icons.gif" />
+    <Content Include="js\umeditor1_2_2-utf8-net\themes\default\images\icons.png" />
+    <Content Include="js\umeditor1_2_2-utf8-net\themes\default\images\ok.gif" />
+    <Content Include="js\umeditor1_2_2-utf8-net\themes\default\images\pop-bg.png" />
+    <Content Include="js\umeditor1_2_2-utf8-net\themes\default\images\spacer.gif" />
+    <Content Include="js\umeditor1_2_2-utf8-net\themes\default\images\videologo.gif" />
+    <Content Include="js\umeditor1_2_2-utf8-net\third-party\jquery.min.js" />
+    <Content Include="js\umeditor1_2_2-utf8-net\third-party\mathquill\font\stixgeneral-bundle\STIXFontLicense2010.txt" />
+    <Content Include="js\umeditor1_2_2-utf8-net\third-party\mathquill\font\stixgeneral-bundle\stixgeneral-webfont.svg" />
+    <Content Include="js\umeditor1_2_2-utf8-net\third-party\mathquill\font\stixgeneral-bundle\stixgeneralbol-webfont.svg" />
+    <Content Include="js\umeditor1_2_2-utf8-net\third-party\mathquill\font\stixgeneral-bundle\stixgeneralbolita-webfont.svg" />
+    <Content Include="js\umeditor1_2_2-utf8-net\third-party\mathquill\font\stixgeneral-bundle\stixgeneralitalic-webfont.svg" />
+    <Content Include="js\umeditor1_2_2-utf8-net\third-party\mathquill\font\Symbola.svg" />
+    <Content Include="js\umeditor1_2_2-utf8-net\third-party\mathquill\mathquill.css" />
+    <Content Include="js\umeditor1_2_2-utf8-net\third-party\mathquill\mathquill.js" />
+    <Content Include="js\umeditor1_2_2-utf8-net\third-party\mathquill\mathquill.min.js" />
+    <Content Include="js\umeditor1_2_2-utf8-net\umeditor.config.js" />
+    <Content Include="js\umeditor1_2_2-utf8-net\umeditor.js" />
+    <Content Include="js\umeditor1_2_2-utf8-net\umeditor.min.js" />
+    <Content Include="Template\Default\css\style.css" />
+    <Content Include="Template\Default\images\bg.jpg" />
+    <Content Include="Template\Default\images\icons-18-white.png" />
+    <Content Include="Template\Default\images\icon_1.png" />
+    <Content Include="Template\Default\images\icon_3.png" />
+    <Content Include="Template\Default\images\icon_4.png" />
+    <Content Include="Template\Default\images\icon_5.png" />
+    <Content Include="Template\Default\images\line.jpg" />
+    <Content Include="Template\Default\images\nav.jpg" />
+    <Content Include="Template\Default\images\nav01.jpg" />
+    <Content Include="Template\Default\js\run.js" />
+    <Content Include="Template\Default\js\touchScroll.js" />
+    <Content Include="Template\Default\js\touchslider.dev.js" />
+    <Content Include="Template\Default\login.aspx" />
+    <Content Include="Template\Default\Portal.aspx" />
+    <Content Include="Template\Default\Map.aspx" />
+    <Content Include="Template\Default\view.jpg" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Jujin.Dao\Jujin.Dao.csproj">
+      <Project>{EF90FD6C-6DAA-4FA5-8129-50A887EAFC6F}</Project>
+      <Name>Jujin.Dao</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Jujin.SMS\Jujin.SMS.csproj">
+      <Project>{213F2B8D-A2C1-4377-A054-50920C0E9DA4}</Project>
+      <Name>Jujin.SMS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Log\Log.csproj">
+      <Project>{894EC949-1A5A-4064-82A1-E4DDDF8EAE69}</Project>
+      <Name>Log</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QQ\QQ.csproj">
+      <Project>{9D037162-6254-4361-9B81-E43406612C3F}</Project>
+      <Name>QQ</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sina.Weibo\Sina.Weibo.csproj">
+      <Project>{39F63E4B-9B73-455D-B3F4-B6D7BE603C63}</Project>
+      <Name>Sina.Weibo</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\WifiAuth\Portal.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Shared\Admin_Layout.cshtml" />
+    <Content Include="Views\Admin\DeviceList.cshtml" />
+    <Content Include="Views\Shared\UC_Top.cshtml" />
+    <Content Include="Views\Shared\UC_Left.cshtml" />
+    <Content Include="Views\Admin\MerchantAdd.cshtml" />
+    <Content Include="Views\Admin\MerchantUpdate.cshtml" />
+    <Content Include="Views\Admin\DeviceAdd.cshtml" />
+    <Content Include="Views\Admin\DeviceUpdate.cshtml" />
+    <Content Include="Views\Admin\MerchantList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="font\fontawesome-webfont.eot" />
+    <None Include="font\fontawesome-webfont.ttf" />
+    <None Include="font\fontawesome-webfont.woff" />
+    <None Include="font\FontAwesome.otf" />
+    <Content Include="Views\Shared\Merchant_Layout.cshtml" />
+    <Content Include="Views\Shared\UC_Left_Merchant.cshtml" />
+    <Content Include="Views\Shared\UC_Top_Merchant.cshtml" />
+    <Content Include="Views\Merchant\Index.cshtml" />
+    <Content Include="Views\Merchant\Home.cshtml" />
+    <Content Include="Views\Merchant\GuestList.cshtml" />
+    <Content Include="js\ueditor1_3_6-utf8-net\net\fileUp.ashx" />
+    <Content Include="js\ueditor1_3_6-utf8-net\net\getContent.ashx" />
+    <Content Include="js\ueditor1_3_6-utf8-net\net\getMovie.ashx" />
+    <Content Include="js\ueditor1_3_6-utf8-net\net\getRemoteImage.ashx" />
+    <Content Include="js\ueditor1_3_6-utf8-net\net\imageManager.ashx" />
+    <Content Include="js\ueditor1_3_6-utf8-net\net\imageUp.ashx" />
+    <Content Include="js\ueditor1_3_6-utf8-net\net\scrawlUp.ashx" />
+    <None Include="js\ueditor1_3_6-utf8-net\third-party\video-js\font\vjs.eot" />
+    <None Include="js\ueditor1_3_6-utf8-net\third-party\video-js\font\vjs.ttf" />
+    <None Include="js\ueditor1_3_6-utf8-net\third-party\video-js\font\vjs.woff" />
+    <Content Include="js\umeditor1_2_2-utf8-net\net\getContent.ashx" />
+    <Content Include="js\umeditor1_2_2-utf8-net\net\imageUp.ashx" />
+    <None Include="js\umeditor1_2_2-utf8-net\third-party\mathquill\font\stixgeneral-bundle\stixgeneral-webfont.eot" />
+    <None Include="js\umeditor1_2_2-utf8-net\third-party\mathquill\font\stixgeneral-bundle\stixgeneral-webfont.ttf" />
+    <None Include="js\umeditor1_2_2-utf8-net\third-party\mathquill\font\stixgeneral-bundle\stixgeneral-webfont.woff" />
+    <None Include="js\umeditor1_2_2-utf8-net\third-party\mathquill\font\stixgeneral-bundle\stixgeneralbol-webfont.eot" />
+    <None Include="js\umeditor1_2_2-utf8-net\third-party\mathquill\font\stixgeneral-bundle\stixgeneralbol-webfont.ttf" />
+    <None Include="js\umeditor1_2_2-utf8-net\third-party\mathquill\font\stixgeneral-bundle\stixgeneralbol-webfont.woff" />
+    <None Include="js\umeditor1_2_2-utf8-net\third-party\mathquill\font\stixgeneral-bundle\stixgeneralbolita-webfont.eot" />
+    <None Include="js\umeditor1_2_2-utf8-net\third-party\mathquill\font\stixgeneral-bundle\stixgeneralbolita-webfont.ttf" />
+    <None Include="js\umeditor1_2_2-utf8-net\third-party\mathquill\font\stixgeneral-bundle\stixgeneralbolita-webfont.woff" />
+    <None Include="js\umeditor1_2_2-utf8-net\third-party\mathquill\font\stixgeneral-bundle\stixgeneralitalic-webfont.eot" />
+    <None Include="js\umeditor1_2_2-utf8-net\third-party\mathquill\font\stixgeneral-bundle\stixgeneralitalic-webfont.ttf" />
+    <None Include="js\umeditor1_2_2-utf8-net\third-party\mathquill\font\stixgeneral-bundle\stixgeneralitalic-webfont.woff" />
+    <None Include="js\umeditor1_2_2-utf8-net\third-party\mathquill\font\Symbola.eot" />
+    <None Include="js\umeditor1_2_2-utf8-net\third-party\mathquill\font\Symbola.otf" />
+    <None Include="js\umeditor1_2_2-utf8-net\third-party\mathquill\font\Symbola.ttf" />
+    <None Include="js\umeditor1_2_2-utf8-net\third-party\mathquill\font\Symbola.woff" />
+    <Content Include="Template\Default\data.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Merchant\TemplateEditor.cshtml" />
+    <Content Include="Views\Merchant\TemplateList.cshtml" />
+    <Content Include="Views\Merchant\MyTemplateList.cshtml" />
+    <Content Include="Views\Merchant\Setting.cshtml" />
+    <Content Include="Views\Admin\Setting.cshtml" />
+    <Content Include="Views\Merchant\BlackList.cshtml" />
+    <Content Include="Views\Merchant\BlackAdd.cshtml" />
+    <Content Include="Views\WifiAuth\Login.cshtml" />
+    <Content Include="Views\Merchant\TemplatePreview.cshtml" />
+    <Content Include="Views\WifiAuth\LoginForWeixinTip.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Merchant\MyDevice.cshtml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49900</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://test.jujinsoft.com</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://test.jujinsoft.com</IISAppRootUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>http://test.jujinsoft.com</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

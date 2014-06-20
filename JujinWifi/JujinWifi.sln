@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Log", "Log\Log.csproj", "{894EC949-1A5A-4064-82A1-E4DDDF8EAE69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jujin.Web", "Jujin.Web\Jujin.Web.csproj", "{94AD819F-97EA-45E4-9DD2-9D4F59D78764}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jujin.Dao", "Jujin.Dao\Jujin.Dao.csproj", "{EF90FD6C-6DAA-4FA5-8129-50A887EAFC6F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sina.Weibo", "Sina.Weibo\Sina.Weibo.csproj", "{39F63E4B-9B73-455D-B3F4-B6D7BE603C63}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jujin.SMS", "Jujin.SMS\Jujin.SMS.csproj", "{213F2B8D-A2C1-4377-A054-50920C0E9DA4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SMS", "SMS", "{9E91CD59-3185-487F-84E5-82EF13B499CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DxtonSMS", "DxtonSMS\DxtonSMS.csproj", "{B3F15FFC-6CB2-4721-ADA8-E857CAB32284}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QQ", "QQ\QQ.csproj", "{9D037162-6254-4361-9B81-E43406612C3F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{894EC949-1A5A-4064-82A1-E4DDDF8EAE69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{894EC949-1A5A-4064-82A1-E4DDDF8EAE69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{894EC949-1A5A-4064-82A1-E4DDDF8EAE69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{894EC949-1A5A-4064-82A1-E4DDDF8EAE69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94AD819F-97EA-45E4-9DD2-9D4F59D78764}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94AD819F-97EA-45E4-9DD2-9D4F59D78764}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94AD819F-97EA-45E4-9DD2-9D4F59D78764}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94AD819F-97EA-45E4-9DD2-9D4F59D78764}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF90FD6C-6DAA-4FA5-8129-50A887EAFC6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF90FD6C-6DAA-4FA5-8129-50A887EAFC6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF90FD6C-6DAA-4FA5-8129-50A887EAFC6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF90FD6C-6DAA-4FA5-8129-50A887EAFC6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39F63E4B-9B73-455D-B3F4-B6D7BE603C63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39F63E4B-9B73-455D-B3F4-B6D7BE603C63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39F63E4B-9B73-455D-B3F4-B6D7BE603C63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39F63E4B-9B73-455D-B3F4-B6D7BE603C63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{213F2B8D-A2C1-4377-A054-50920C0E9DA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{213F2B8D-A2C1-4377-A054-50920C0E9DA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{213F2B8D-A2C1-4377-A054-50920C0E9DA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{213F2B8D-A2C1-4377-A054-50920C0E9DA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3F15FFC-6CB2-4721-ADA8-E857CAB32284}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3F15FFC-6CB2-4721-ADA8-E857CAB32284}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3F15FFC-6CB2-4721-ADA8-E857CAB32284}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3F15FFC-6CB2-4721-ADA8-E857CAB32284}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D037162-6254-4361-9B81-E43406612C3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D037162-6254-4361-9B81-E43406612C3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D037162-6254-4361-9B81-E43406612C3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D037162-6254-4361-9B81-E43406612C3F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B3F15FFC-6CB2-4721-ADA8-E857CAB32284} = {9E91CD59-3185-487F-84E5-82EF13B499CF}
+	EndGlobalSection
+EndGlobal

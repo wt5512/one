@@ -1,0 +1,43 @@
+﻿@{
+    Layout = "~/Views/Shared/Merchant_Layout.cshtml";
+    ViewBag.Title = "商家后台登陆";
+}
+<div class="login-bg">
+<div class="row-fluid login-wrapper">
+    <a href="#">
+        <img class="logo" src="/img/logo-white.png">
+    </a>
+    <div class="span4 box">
+        <div class="content-wrap">
+            <h6>
+                商家后台</h6>
+            <form action="/merchant/login" method="post" accept-charset="utf-8"
+            style="margin: 0;">
+            <input type="text" name="username" value="" class="span12" placeholder="输入用户名" />
+            <input type="password" name="user_password" value="" class="span12" placeholder="输入密码" />
+            @*<a href="#" class="forgot">忘记密码?</a>*@
+            <div class="remember">
+                  <input id="remember-me" type="checkbox">
+                    <label for="remember-me">记住我</label>
+                    
+            </div>
+            @if (ViewBag.msg!=null&&ViewBag.msg != "")
+            {
+            <span class="label label-important pull-left"><i class="icon-remove-sign"></i>@ViewBag.msg</span>
+            }
+            <div class="acction">
+                <input name="url" type="hidden" value="@Request.QueryString["url"]"/>
+                <input type="submit" name="submit" value="登录" class="btn-glow primary login" />
+            </div>
+            </form>
+        </div>
+    </div>
+    <div class="span4 no-account">
+        @*<span>
+            <p>
+                还没有账户?</p>
+            <a href="#">注册</a> </span>*@
+    </div>
+</div>
+</div>
+<script src="/js/delay_time.js"></script>

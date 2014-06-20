@@ -1,0 +1,171 @@
+﻿@{
+    Layout = "~/Views/Shared/Merchant_Layout.cshtml";
+    ViewBag.Title = "商家后台";
+
+    Jujin.Dao.wifi_merchant merchant = Jujin.Web.JujinContext.GetCurrentMerchant();
+    System.Xml.XmlDocument data_config = ViewBag.data_config;
+
+    Jujin.Dao.wifi_template template = ViewBag.template;
+    string template_data_str = "{}";
+    if (template != null)
+    {
+        template_data_str = template.template_data;
+    }
+    dynamic template_data = Json.Decode(template_data_str);
+}
+@{Html.RenderPartial("UC_Top_Merchant");}
+@{Html.RenderPartial("UC_Left_Merchant");}
+<div class="content">
+    <div class="container-fluid">
+        <div id="pad-wrapper" class="settings-wrapper">
+            <ul class="breadcrumb">
+                <li><a href="/merchant">首页</a> <span class="divider">/</span></li>
+                <li class="active">模板编辑</li>
+            </ul>
+            <!-- avatar column -->
+            <!-- edit form column -->
+            <div class="personal-info">
+                <div style="margin-bottom: 5px; width: 94%;" class="alert alert-info">
+                    <i class="icon-lightbulb">欢迎登录 <strong> @merchant.merchant_name</strong> 管理中心！</i>
+                </div>
+                <div class="clearfix ">
+                </div>
+                <form method="post">
+                <div class="template">
+
+                @foreach (System.Xml.XmlNode node in data_config.SelectSingleNode("root").ChildNodes)
+                {
+                    var val = node.Attributes["name"]!=null&&template_data[node.Attributes["name"].Value] != null ? ((string)template_data[node.Attributes["name"].Value]).ToString() : "";
+                    if (node.Name == "group")
+                    {
+                    
+                        int len = template_data[node.ChildNodes[0].Attributes["name"].Value] != null ? ((string)template_data[node.ChildNodes[0].Attributes["name"].Value]).ToString().Split(',').Length : 1;
+                        <div name="@node.Attributes["name"].Value" class="group">
+                        @for (int i = 0; i < len; i++)
+                        { 
+                            
+                        <fieldset name="@node.Attributes["name"].Value" tip="@node.Attributes["tip"].Value">
+                        <legend>@(node.Attributes["tip"].Value + (i + 1))</legend>
+                        @foreach (System.Xml.XmlNode node2 in node.ChildNodes)
+                        {
+                            val = template_data[node2.Attributes["name"].Value] != null ? ((string)template_data[node2.Attributes["name"].Value]).ToString().Split(',')[i] : "";
+                            if (node2.Attributes["type"].Value == "text")
+                            {
+                                @node2.Attributes["tip"].Value <input type="text" name="@node2.Attributes["name"].Value" value="@val" />
+                            }
+                            else if (node2.Attributes["type"].Value == "radio")
+                            {
+                                @node2.Attributes["tip"].Value
+                           foreach (System.Xml.XmlNode n in node2.ChildNodes)
+                           {
+                                    <input type="radio" value="@n.Attributes["value"].Value" @(val == n.Attributes["value"].Value ? "checked='checked'" : "") name="@node2.Attributes["name"].Value" />@n.Attributes["tip"].Value
+                           }
+                            }
+                            else if (node2.Attributes["type"].Value == "select")
+                            {
+                                @node2.Attributes["tip"].Value
+                                <select name="@node2.Attributes["name"].Value">
+                                @foreach (System.Xml.XmlNode n in node2.ChildNodes)
+                                {
+                                    <option value="@n.Attributes["value"].Value" @(val == n.Attributes["value"].Value ? "selected='selected'" : "")>@n.Attributes["tip"].Value</option>
+                                }
+                                </select>
+                            }
+                            else if (node2.Attributes["type"].Value == "file")
+                            {
+                                <file>
+                                @node2.Attributes["tip"].Value
+                                <input type="text" name="@node2.Attributes["name"].Value" value="@val" /><a href="javascript:;" class="uploadfile">从本地上传</a>
+                                </file>
+                            }
+                            <br />
+                        }
+                        </fieldset>
+                        }
+                        </div>
+                        <div class="opt"><input type="button" class="f_add" name="@node.Attributes["name"].Value" value="新增 @node.Attributes["tip"].Value"/><input class="f_del" type="button" name="@node.Attributes["name"].Value" value="删除 @node.Attributes["tip"].Value"/></div>
+
+                    }
+                    else if (node.Attributes["type"].Value == "text")
+                    {
+                       <div class="field-box"> <label>@node.Attributes["tip"].Value :</label> <input type="text" name="@node.Attributes["name"].Value" value="@val" /></div>
+                    }
+                    else if (node.Attributes["type"].Value == "radio")
+                    {
+                        <div class="field-box"><label>@node.Attributes["tip"].Value :</label>
+                        @foreach (System.Xml.XmlNode n in node.ChildNodes)
+                        {
+                        <input type="radio" value="@n.Attributes["value"].Value" @(val == n.Attributes["value"].Value ? "checked='checked'" : "") name="@node.Attributes["name"].Value" />@n.Attributes["tip"].Value
+                        }
+                        </div>
+                    }
+                    else if (node.Attributes["type"].Value == "select")
+                    {
+                        <div class="field-box"><label>@node.Attributes["tip"].Value :</label>
+                        <select name="@node.Attributes["name"].Value">
+                        @foreach (System.Xml.XmlNode n in node.ChildNodes)
+                        {
+                            <option value="@n.Attributes["value"].Value" @(val == n.Attributes["value"].Value ? "selected='selected'" : "")>@n.Attributes["tip"].Value</option>
+                        }
+                        </select>
+                        </div>
+                    }
+                    else if (node.Attributes["type"].Value == "file")
+                    {
+                        <div class="field-box"><label>@node.Attributes["tip"].Value :</label>
+                        <file>
+                        <input type="text" name="@node.Attributes["name"].Value" value="@val" /><a href="javascript:;" class="uploadfile">从本地上传</a>
+                        </file>
+                        </div>
+                    }
+                    else if(node.Attributes["type"].Value == "page")
+                    {
+                        <blockquote><p>@node.Attributes["tip"].Value</p></blockquote>
+                    }
+                }
+                <input type="submit" class="btn-glow primary" value="确定" />
+                </div>
+                <div class="view">
+                <iframe width="400" height="600" frameborder="0" src="templatepreview?template_name=@Request.QueryString["template_name"]"></iframe>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="upload_con" style="display:none;">
+<iframe src="/aspx/upfile.aspx?callback=prefile" scrolling="no" frameborder="0" width="100%" height="25"></iframe>
+</div>
+<style type="text/css">
+    .template{line-height:30px;width:50%;float:left;}
+    .template fieldset{}
+    .template .opt{text-align:right}
+    .view{width:50%;float:left;text-align: center;}
+</style>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".f_add").click(function () {
+            var name = $(this).attr("name");
+            var f = $("fieldset[name='" + name + "']:eq(0)").clone();
+            f.find("#upload_con").remove(); //如果有上传控件,则移除
+            f.find("input").val("");
+            $(".group[name='" + name + "']").append(f);
+            f.find("legend").html(f.attr("tip") + $("fieldset[name='" + name + "']").length);
+        });
+        $(".f_del").click(function () {
+            var name = $(this).attr("name");
+            if ($("fieldset[name='" + name + "']").length > 1) {
+                $("#upload_con").hide().appendTo("body");
+                $("fieldset[name='" + name + "']").last().remove();
+            }
+        });
+        $(".uploadfile").live("click", function () {
+            $("#upload_con").appendTo($(this).parent("file"));
+            $("#upload_con").show();
+        });
+    });
+
+    function prefile(f) {
+        $("#upload_con").parent("file").find("input[type='text']").val(f);
+    }
+</script>

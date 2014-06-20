@@ -1,0 +1,15 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "模版预览";
+
+    Jujin.Dao.wifi_merchant merchant = Jujin.Web.JujinContext.GetCurrentMerchant();
+    var template_name = Request.QueryString["template_name"];
+
+}
+<div class="top">
+<a href="/template/@template_name/login.aspx?template_name=@template_name&type=preview" target="main">登录页面</a>
+<a href="/template/@template_name/portal.aspx?template_name=@template_name&type=preview" target="main">商家主页</a>
+</div>
+<div class="con">
+  <iframe name="main" width="340" height="500" frameborder="0" src="/template/@template_name/login.aspx?template_name=@template_name&type=preview"></iframe>
+</div>

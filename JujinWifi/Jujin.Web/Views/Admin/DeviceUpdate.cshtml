@@ -1,0 +1,74 @@
+﻿@{
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+    ViewBag.Title = "修改设备";
+
+    Jujin.Dao.wifi_device device = ViewBag.device ?? new Jujin.Dao.wifi_device();
+    Jujin.Dao.wifi_merchant merchant = ViewBag.merchant ?? new Jujin.Dao.wifi_merchant();
+}
+@{Html.RenderPartial("UC_Top");}
+@{Html.RenderPartial("UC_Left");}
+<div class="content">
+    <div class="container-fluid">
+        <div id="pad-wrapper" class="settings-wrapper">
+            <ul class="breadcrumb">
+                <li><a href="/">首页</a> <span class="divider">/</span></li>
+                <li>商家管理 <span class="divider">/</span></li>
+                <li class="active">修改设备</li>
+            </ul>
+            <!-- avatar column -->
+            <!-- edit form column -->
+            <div class="personal-info ad_add">
+                <div style="margin-bottom: 5px; width: 94%;" class="alert alert-info">
+                    <i class="icon-lightbulb">您正在为<strong>@merchant.merchant_name</strong>修改设备信息，您也可以返回该商家的
+                    <strong><a href="/admin/devicelist?merchant_id=@device.merchant_id">设备列表</a></strong></i>
+                </div>
+                <div class="clearfix ">
+                </div>
+                <form enctype="multipart/form-data" accept-charset="utf-8" method="post">
+                <blockquote>
+                    <p>
+                        基本信息</p>
+                </blockquote>
+                <div class="field-box">
+                    <label>
+                        设备号：<span class="label label-important">*</span></label>
+                    <input type="text" placeholder="设备号" class="span4 inline-input" value="@device.gw_id" name="gw_id" readonly="readonly">
+                </div>
+                <div class="clearfix ">
+                </div>
+                <div class="field-box narrow-box">
+                    <label>
+                        开始时间：<span class="label label-important">*</span></label>
+                    <input type="text" placeholder="开始时间" class="inline-input span3" value="@device.begin_time.ToString("yyyy-MM-dd")" name="begin_time" id="begin_time" onFocus="WdatePicker({isShowClear:false,readOnly:true,maxDate:'#F{$dp.$D(\'end_time\')||\'2020-10-01\'}'})"/> 
+                </div>
+                <div class="field-box narrow-box">
+                    <label>
+                        结束时间：<span class="label label-important">*</span></label>
+                    <input type="text" placeholder="结束时间" class="span3 inline-input" value="@device.end_time.ToString("yyyy-MM-dd")" name="end_time" id="end_time" onFocus="WdatePicker({isShowClear:false,readOnly:true,minDate:'#F{$dp.$D(\'begin_time\')}',maxDate:'2020-10-01'})"/>
+                </div>
+                <div class="clearfix ">
+                </div>
+                <div class="field-box narrow-box">
+                    <label>
+                        设备名称：<span class="label label-important">*</span></label>
+                    <input type="text" placeholder="设备名称" class="span3 inline-input" value="@device.device_name" name="device_name">
+                </div>
+                <div class="clearfix ">
+                </div>
+                <div class="field-box narrow-box">
+                    <label>
+                        启用状态：<span class="label label-important">*</span></label>
+                    <input type="radio" value="true" name="enabled" class="inline-input" id="enabled1" @((bool)device.enabled?"checked='checked'":"")>启用
+                    <input type="radio" value="false" name="enabled" class="inline-input" id="enabled2" @((bool)device.enabled?"":"checked='checked'")>禁用
+                </div>
+                <div class="clearfix ">
+                </div>
+                <div class="span8 field-box actions">
+                <input type="hidden" name="id" value="@device.id" />
+                    <input type="submit" class="btn-glow primary login" value="修改" name="submit">
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

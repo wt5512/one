@@ -1,0 +1,49 @@
+#main-stats{margin-right:-20px;margin-left:-20px;border-bottom:1px solid #efeef3;background-color:#fdfdfd}#main-stats .stats-row{box-shadow:inset -1px 0 5px 2px #f9f9f9}#main-stats .stat{position:relative;padding:20px 0 25px 0;border-right:1px solid #e8e9ee;box-shadow:1px 0 0 0 white;text-align:right}#main-stats .stat.last{border-right:0}#main-stats .stat .data{padding-right:50px;color:#29323a;text-transform:uppercase;font-weight:600;font-size:16px}#main-stats .stat .data .number{margin-right:5px;color:#32a0ee;font-size:25px}#main-stats .stat .date{position:absolute;right:50px;color:#b4b8bb;font-weight:lighter;font-style:italic;font-size:13px;font-family:'Lato','Open Sans'}.section{margin-top:100px;padding-top:45px;border-top:1px solid #edeff1;box-shadow:inset 0 3px 4px -1px #fafafa}@media(max-width:767px){#main-stats{margin-right:0;margin-left:0}#pad-wrapper .ui-elements .knobs{text-align:center}#pad-wrapper .ui-elements .knobs .knob-wrapper{float:inherit}#pad-wrapper .ui-elements .showcase{text-align:center}#pad-wrapper .table-products .table .img{display:none}#pad-wrapper .table-products .table input[type="checkbox"]{margin-right:10px}#pad-wrapper .table-products .table .label{display:none}}@media(max-width:979px){#main-stats .stat .data{padding-right:17px}#pad-wrapper .knob-wrapper .info{display:none}.pointer{top:5%}}@media(min-width:980px){#pad-wrapper .ui-elements .knob-wrapper+.knob-wrapper{margin-left:5px}}@media(min-width:1200px){#pad-wrapper .ui-elements .showcase{width:53%}#pad-wrapper .ui-elements .knob-wrapper+.knob-wrapper{margin-left:35px}}
+.btn-tag
+{
+    background:#006dcc;
+    border:none;
+    border-radius: 0;
+}
+.btn-tag-curr
+{
+    background:#b94a48;
+    border:none;
+}
+.btn-tag-curr:hover
+{
+    background:#aa0000;
+    border:none;
+}
+#auth_type li
+{
+    list-style:none;
+    margin-left:110px;
+}
+#auth_type label
+{
+    float:inherit;
+}
+#pagecon a,#pagecon span {
+    border: 1px solid #CCCCCC;
+    float: left;
+    font-family: arial;
+    font-size: 14px;
+    height: 20px;
+    line-height: 20px;
+    margin-left: 2px;
+    overflow: hidden;
+    padding: 3px 10px;
+}
+#pagecon span {
+    color: #FF6600;
+    font-weight: 700;
+    border: 0 none;
+    padding: 4px 11px;
+}
+#pagecon a:hover
+{
+    background: none repeat scroll 0 0 #005AA0;
+    color: #FFFFFF;
+    text-decoration: none;
+}

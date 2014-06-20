@@ -1,0 +1,46 @@
+﻿@{
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+    ViewBag.Title = "账号设置";
+
+    Jujin.Dao.wifi_admin admin = ViewBag.admin;
+
+}
+@{Html.RenderPartial("UC_Top");}
+@{Html.RenderPartial("UC_Left");}
+
+<div class="content">
+    <div class="container-fluid">
+        <div id="pad-wrapper" class="settings-wrapper">
+            <ul class="breadcrumb">
+                <li><a href="/admin">首页</a> <span class="divider">/</span></li>
+                <li class="active">账号设置</li>
+            </ul>
+            <!-- avatar column -->
+            <!-- edit form column -->
+            <div class="personal-info">
+                <div style="margin-bottom: 5px; width: 94%;" class="alert alert-info">
+                    <i class="icon-lightbulb">欢迎登录 <strong> @admin.real_name</strong></i>
+                </div>
+                <div class="clearfix ">
+                </div>
+                <form enctype="multipart/form-data" accept-charset="utf-8" method="post">
+                <blockquote>
+                    <p>
+                        设置信息</p>
+                </blockquote>
+
+                <div class="field-box narrow-box">
+                    <label>
+                        密码：</label>
+                    <input type="password" placeholder="登录密码" class="span3 inline-input" value="" name="password">
+                </div>
+                <div class="clearfix ">
+                </div>
+                <div class="span8 field-box actions">
+                    <input type="submit" class="btn-glow primary login" value="修改" name="submit">
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

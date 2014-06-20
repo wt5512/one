@@ -1,0 +1,145 @@
+﻿@{
+    Layout = "~/Views/Shared/Merchant_Layout.cshtml";
+    ViewBag.Title = "商家后台";
+
+    Jujin.Dao.wifi_merchant merchant = Jujin.Web.JujinContext.GetCurrentMerchant();
+
+}
+@{Html.RenderPartial("UC_Top_Merchant");}
+@{Html.RenderPartial("UC_Left_Merchant");}
+@*<div class="content">
+    <div class="container-fluid">
+        <div id="pad-wrapper" class="settings-wrapper">
+            <ul class="breadcrumb">
+                <li><a href="/merchant">首页</a> <span class="divider">/</span></li>
+                <li class="active">概况信息</li>
+            </ul>
+            <!-- avatar column -->
+            <!-- edit form column -->
+            <div class="personal-info">
+                <div style="margin-bottom: 5px; width: 94%;" class="alert alert-info">
+                    <i class="icon-lightbulb">欢迎登录 <strong> @merchant.merchant_name</strong> 管理中心！</i>
+                </div>
+                <div class="clearfix ">
+                </div>
+                <div>
+                用户统计：今日 @ViewBag.today_guest_count ，昨日 @ViewBag.yesterday_guest_count，历史 @ViewBag.history_guest_count
+                </div>
+                <div>
+                短信统计：剩余，已发
+                </div>
+            </div>
+        </div>
+    </div>
+</div>*@
+<div class="content">
+
+        <!-- settings changer -->
+
+        <div class="container-fluid">
+
+            <!-- upper main stats -->
+            <div id="main-stats">
+                <div class="row-fluid stats-row">
+                    <div class="span3 stat">
+                        <div class="data">
+                            今日流量<span class="number"><a href="#">@ViewBag.today_guest_count</a></span>
+                        </div>
+                        <span class="date">登录次数</span>
+                    </div>
+                    <div class="span3 stat">
+                        <div class="data">
+                            在线访客<span class="number"><a href="/merchant/guestlist?isonline=1">@ViewBag.online_guest_count</a></span>
+                        </div>
+                        <span class="date">当前在线</span>
+                    </div>
+                    <div class="span3 stat">
+                        <div class="data">
+                            访客总数<span class="number"><a href="/merchant/guestlist">@ViewBag.history_guest_count</a></span>
+                        </div>
+                        <span class="date">历史统计</span>
+                    </div>
+                    <div class="span3 stat last">
+                        <div class="data">
+                            设备数量<span class="number"><a href="/merchant/mydevice">@ViewBag.device_count</a></span>
+                        </div>
+                        <span class="date">设备总计</span>
+                    </div>
+                </div>
+            </div>
+            <!-- end upper main stats -->
+
+            <div id="pad-wrapper" style="margin-top:5px;">
+				
+                <!-- statistics chart built with echart -->
+                <div class="row-fluid chart">
+                    <div class="span12">
+                        <div id="main" style="height:500px;width:100%;"></div>
+                    </div>
+                   <!-- 
+                   <div class="btn-group pull-right">
+                       <button class="glow left">DAY</button>
+                       <button class="glow middle active">MONTH</button>
+                       <button class="glow right">YEAR</button>
+                   </div>
+                    -->
+                </div>
+                <!-- end statistics chart -->
+             
+            </div>
+        </div>
+    </div>
+    <!-- echart -->
+    <script src="/js/echarts-plain-map.js"></script>
+    <script type="text/javascript">
+        var myChart = echarts.init(document.getElementById('main'));
+        myChart.setOption({
+            color: ['RGB(100,149,237)', 'RGB(255,127,80)'],
+            title: {
+                text: '最近7天 访客统计 ',
+                subtext: '仅供参考'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: ['访客量', '新用户']
+            },
+
+            toolbox: {
+                show: true,
+                feature: {
+                    mark: false,
+                    dataView: { readOnly: true },
+                    magicType: ['line', 'bar'],
+                    restore: true,
+                    saveAsImage: true
+                }
+            },
+            xAxis: [
+	            {
+	                type: 'category',
+	                data: [@Html.Raw(ViewBag.x_data)]
+
+	            }
+	        ],
+            yAxis: [
+	            {
+	                type: 'value',
+	                splitArea: { show: true }
+	            }
+	        ],
+            series: [
+	            {
+	                name: '访客量',
+	                type: 'bar',
+	                data: [@Html.Raw(ViewBag.visit_data)]
+	            },
+	            {
+	                name: '新用户',
+	                type: 'bar',
+	                data: [@Html.Raw(ViewBag.new_guest_data)]
+	            }
+	        ]
+        });
+    </script>

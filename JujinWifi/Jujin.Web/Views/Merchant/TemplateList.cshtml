@@ -1,0 +1,46 @@
+﻿@{
+    Layout = "~/Views/Shared/Merchant_Layout.cshtml";
+    ViewBag.Title = "商家后台";
+
+    Jujin.Dao.wifi_merchant merchant = Jujin.Web.JujinContext.GetCurrentMerchant();
+
+    var guestlist = ViewBag.guestlist;
+
+}
+@{Html.RenderPartial("UC_Top_Merchant");}
+@{Html.RenderPartial("UC_Left_Merchant");}
+<div class="content">
+    <div class="container-fluid">
+        <div id="pad-wrapper" class="settings-wrapper">
+            <ul class="breadcrumb">
+                <li><a href="/merchant">首页</a> <span class="divider">/</span></li>
+                <li class="active">模版列表</li>
+            </ul>
+            <!-- avatar column -->
+            <!-- edit form column -->
+            <div class="personal-info">
+                <div style="margin-bottom: 5px; width: 94%;" class="alert alert-info">
+                    <i class="icon-lightbulb">欢迎登录 <strong>@merchant.merchant_name</strong> 管理中心！</i>
+                </div>
+                <div class="clearfix ">
+                </div>
+            </div>
+            <div class="personal-info ad_add" style="width: 95%;">
+                <blockquote class="pull-left" style="width: 100%;">
+                    <p>
+                        公共模板</p>
+                </blockquote>
+                @foreach (System.IO.DirectoryInfo dir in ViewBag.template_list)
+                {
+                    <div class="ad_theme_box" style="height: 360px">
+                        <div class="ad_theme_box_img">
+                            <a href="templateeditor?template_name=@dir.Name">
+                                <img src="/template/@dir.Name/view.jpg" style="width:240px;height:320px;"/></a></div>
+                        <div class="ad_theme_tplname" style="margin-top: 10px;">
+                            <a href="templateeditor?template_name=@dir.Name">@dir.Name</a></div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

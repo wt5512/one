@@ -1,0 +1,44 @@
+﻿@{
+    Layout = "~/Views/Shared/Merchant_Layout.cshtml";
+    ViewBag.Title = "商家后台";
+
+    Jujin.Dao.wifi_merchant merchant = Jujin.Web.JujinContext.GetCurrentMerchant();
+}
+@{Html.RenderPartial("UC_Top_Merchant");}
+@{Html.RenderPartial("UC_Left_Merchant");}
+<div class="content">
+    <div class="container-fluid">
+        <div id="pad-wrapper" class="settings-wrapper">
+            <ul class="breadcrumb">
+                <li><a href="/merchant">首页</a> <span class="divider">/</span></li>
+                <li class="active">添加黑名单</li>
+            </ul>
+            <!-- avatar column -->
+            <!-- edit form column -->
+            <div class="personal-info">
+                <div style="margin-bottom: 5px; width: 94%;" class="alert alert-info">
+                    <i class="icon-lightbulb">欢迎登录 <strong> @merchant.merchant_name</strong> 管理中心！</i>
+                </div>
+                <div class="clearfix ">
+                </div>
+                <form enctype="multipart/form-data" accept-charset="utf-8" method="post">
+                <blockquote>
+                    <p>
+                        添加黑名单</p>
+                </blockquote>
+
+                <div class="field-box">
+                    <label>
+                        用户名（手机号码）：</label>
+                    <input type="text" placeholder="登录用户名" class="span3 inline-input" name="login_name">
+                </div>
+                <div class="clearfix ">
+                </div>
+                <div class="span8 field-box actions">
+                    <input type="submit" class="btn-glow primary login" value="添加黑名单" name="submit">
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

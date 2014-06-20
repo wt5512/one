@@ -1,0 +1,95 @@
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td, a, span {
+    margin: 0;
+    padding: 0;
+}
+body, button, input, select, textarea {
+    font: 12px/1.5 "Microsoft YaHei","SimSun","微软雅黑","宋体",tahoma,arial,宋体,sans-serif;
+}
+/*定义动画*/
+@-moz-keyframes fadeIn{
+	0%{opacity: 0;top: -20px;} /*初始状态 透明度为0*/
+	100%{opacity: 1;top:20px;}
+}
+@-webkit-keyframes fadeIn{
+	0%{opacity: 0;top: -20px;}
+	100%{opacity: 1;top: 20px;}
+}
+@-o-keyframes fadeIn{
+	0%{opacity: 0;top: -20px;}
+	100%{opacity: 1;top: 20px;}
+}
+@keyframes fadeIn{
+	0%{opacity: 0;top: -20px;}
+	100%{opacity: 1;top: 20px;}
+}
+/*调用动画*/
+.test{
+	-webkit-animation-name:fadeIn; /*动画名称*/
+	-webkit-animation-duration: 1s; /*动画持续时间*/
+	-webkit-animation-iteration-count: 1; /*动画次数*/
+	-webkit-animation-delay: 0s; /*延迟时间*/
+	-moz-animation-name:fadeIn;
+	-moz-animation-duration: 3s;
+	-moz-animation-iteration-count: 1;
+	-moz-animation-delay: 0s;
+	-o-animation-name:fadeIn;
+	-o-animation-duration: 3s;
+	-o-animation-iteration-count: 1;
+	-o-animation-delay: 0s;
+}
+.wrapper{
+	text-align: center;
+	margin-top: 80px;
+}
+/*header*/
+#logo{
+	position: relative;
+	top: 20px;
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+	font-weight: normal;
+}
+#logo a{
+	color: #262626;
+	font-size: 1.2em;
+}
+#logo .lo_ico{
+	width: 104px;
+	height: 104px;
+	max-width: 104px;
+	max-height: 104px;
+}
+
+.transition{
+	-webkit-transition-duration: 0.2s,0.2s,0.2s;
+	-moz-transition-duration: 0.2s,0.2s,0.2s;
+	-o-transition-duration: 0.2s,0.2s,0.2s;
+	transition-duration: 0.2s,0.2s,0.2s;
+}
+.fluid {
+    clear: both;
+    display: block;
+    float: left;
+    margin-left: 0;
+    width: 100%;
+}
+.notecont {
+    margin: 80px auto 0;
+    width: 100%;
+}
+.notecont h2 {
+    color: #333;
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+#footer {
+    margin: 60px 0 10px;
+    text-align: center;
+    width: 100%;
+}
+#footer p {
+    color: #adadad;
+    font-size: 12px;
+}

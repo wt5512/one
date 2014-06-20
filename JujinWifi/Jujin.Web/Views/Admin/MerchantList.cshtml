@@ -1,0 +1,133 @@
+﻿@{
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+    ViewBag.Title = "商家列表";
+
+    IQueryable<Jujin.Dao.wifi_merchant> merchantlist = ViewBag.merchantlist ;
+}
+@{Html.RenderPartial("UC_Top");}
+@{Html.RenderPartial("UC_Left");}
+<div class="content">
+    <div class="container-fluid">
+        <div id="pad-wrapper" class="settings-wrapper">
+            <ul class="breadcrumb">
+                <li><a href="/">首页</a> <span class="divider">/</span></li>
+                <li>商家管理 <span class="divider">/</span></li>
+                <li class="active">商家列表</li>
+            </ul>
+            <!-- avatar column -->
+            <!-- edit form column -->
+            <div>
+                <div class="alert alert-info ">
+                    <i class="icon-lightbulb">这里将显示<strong>商家列表</strong>信息。您可以对它们进行 <strong><a href="/admin/merchantadd">添加</a></strong>、删除、修改 操作。</i>
+                </div>
+            </div>
+            <div>
+                <table class="table table-bordered ">
+                    <thead>
+                        <tr>
+                            <th class="span1">
+                                &nbsp;&nbsp;<i class="icon-th icon-large"></i>
+                            </th>
+                            <th class="span1">
+                                <strong>商家名称</strong>
+                            </th>
+                            <th class="span2">
+                                <strong>地址信息</strong>
+                            </th>
+                            <th class="span2">
+                                <strong>联系信息</strong>
+                            </th>
+                            <th class="span1">
+                                <strong>用户名</strong>
+                            </th>
+                            <th class="span1">
+                                <strong>短信</strong>
+                            </th>
+                            <th class="span2">
+                                <strong>创建时间</strong>
+                            </th>
+                            <th class="span2">
+                                <strong>操作</strong>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="responds">
+                    @if (merchantlist != null)
+                    {
+                        int i = 0;
+                        foreach (var mer in merchantlist)
+                        {
+                            i++;
+                        <tr @(i % 2 == 0 ? "" : "style='background-color: #F7F7F9;'")>
+                            <td>
+                                <span class="badge  label-info">@i</span>
+                            </td>
+                            <td>
+                                @mer.merchant_name
+                            </td>
+                            <td>
+                                @(mer.province + mer.city + mer.area)<br />
+                                @mer.address_info
+                            </td>
+                            <td>
+                                联系人：@mer.contact_name
+                                <br />
+                                联系电话：@mer.contact_phone
+                            </td>
+                            <td>
+                                @mer.username
+                            </td>
+                            <td>
+                                @mer.sms_count
+                            </td>
+                            <td>
+                                @mer.create_time.ToString("yyyy-MM-dd HH:mm:ss")
+                            </td>
+                            <td>
+                                <a href="/admin/merchantupdate/@mer.id" class="btn btn-primary btn-mini">编辑</a>
+                                <a href="/admin/merchantdel/@mer.id" class="btn btn-primary btn-mini">删除</a>
+                                <a href="/admin/devicelist/?merchant_id=@mer.id" class="btn btn-primary btn-mini">设备列表</a>
+                                @if(Jujin.Web.JujinContext.GetCurrentAdmin().state==2)
+                                {
+                                <a merchant_id="@mer.id" class="btn btn-primary btn-mini charge">充值</a>
+                                }
+                            </td>
+                        </tr>
+                        }
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="charge_box" style="position:absolute;z-index:5000;background:#ffffff; width:200px;display:none;border:1px solid #aaaaaa;padding:5px;line-height:25px;">
+<p style="text-align:right;"><a href="javascript:;" id="btnclose" style="color:Blue;">关闭</a></p>
+<input type="hidden" id="merchant_id" />
+充值数量：<input type="text" id="sms_count" style="width:40px;"/>
+<input type="button" id="btn_ok" value="确定" class="btn btn-primary btn-mini" />
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".charge").click(function (e) {
+            $("#charge_box #sms_count").val("0")
+            var mer_id = $(this).attr("merchant_id");
+            $("#charge_box #merchant_id").val(mer_id);
+            $("#charge_box").css({ "top": e.pageY + "px", "left": e.pageX - 200 + "px" }).show();
+            return false;
+        });
+        $("#btnclose").click(function () {
+            $("#charge_box").hide();
+        });
+        $("#btn_ok").click(function () {
+            $.get("/admin/merchantchargesms?merchant_id=" + $("#charge_box #merchant_id").val() + "&sms_count=" + $("#charge_box #sms_count").val(), function (data) {
+                if (data == "ok") {
+                    alert("充值成功！");
+                }
+                else {
+                    alert(data);
+                }
+            });
+        });
+    });
+</script>

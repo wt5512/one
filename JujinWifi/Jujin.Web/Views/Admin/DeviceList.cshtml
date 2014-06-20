@@ -1,0 +1,95 @@
+﻿@{
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+    ViewBag.Title = "商家列表";
+
+    IQueryable<Jujin.Dao.wifi_device> devicelist = ViewBag.devicelist;
+    Jujin.Dao.wifi_merchant merchant = ViewBag.merchant ?? new Jujin.Dao.wifi_merchant();
+}
+@{Html.RenderPartial("UC_Top");}
+@{Html.RenderPartial("UC_Left");}
+<div class="content">
+    <div class="container-fluid">
+        <div id="pad-wrapper" class="settings-wrapper">
+            <ul class="breadcrumb">
+                <li><a href="/">首页</a> <span class="divider">/</span></li>
+                <li>商家管理 <span class="divider">/</span></li>
+                <li class="active">设备列表</li>
+            </ul>
+            <!-- avatar column -->
+            <!-- edit form column -->
+            <div>
+                <div class="alert alert-info ">
+                    <i class="icon-lightbulb">这里将显示<strong>@merchant.merchant_name</strong>设备列表信息。您可以对它们进行删除、修改操作。您也可以返回
+                    <strong><a href="/admin/merchantlist">商家列表</a>。</strong>
+                    为<strong>@merchant.merchant_name</strong>添加设备请点击这里
+                    <strong><a href="/admin/deviceadd/?merchant_id=@merchant.id">添加设备</a></strong></i>
+                </div>
+            </div>
+            <div>
+                <table class="table table-bordered ">
+                    <thead>
+                        <tr>
+                            <th class="span1">
+                                &nbsp;&nbsp;<i class="icon-th icon-large"></i>
+                            </th>
+                            <th class="span2">
+                                <strong>设备号</strong>
+                            </th>
+                            <th class="span2">
+                                <strong>设备名称</strong>
+                            </th>
+                            <th class="span2">
+                                <strong>起止时间</strong>
+                            </th>
+                            <th class="span2">
+                                <strong>状态</strong>
+                            </th>
+                            <th class="span2">
+                                <strong>创建时间</strong>
+                            </th>
+                            <th class="span2">
+                                <strong>操作</strong>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="responds">
+                    @if (devicelist != null)
+                    {
+                        int i = 0;
+                        foreach (var dev in devicelist)
+                        {
+                            i++;
+                        <tr @(i % 2 == 0 ? "" : "style='background-color: #F7F7F9;'")>
+                            <td>
+                                <span class="badge  label-info">@i</span>
+                            </td>
+                            <td>
+                                <span>@dev.gw_id</span>
+                            </td>
+                            <td>
+                                @dev.device_name
+                            </td>
+                            <td>
+                                @dev.begin_time.ToString("yyyy-MM-dd HH:mm:ss")
+                                <br />
+                                @dev.end_time.ToString("yyyy-MM-dd HH:mm:ss")
+                            </td>
+                            <td>
+                                @((bool)dev.enabled?"开启":"禁用")
+                            </td>
+                            <td>
+                                @dev.create_time.ToString("yyyy-MM-dd HH:mm:ss")
+                            </td>
+                            <td>
+                                <a href="/admin/deviceupdate/@dev.id" class="btn btn-primary btn-mini">编辑</a>
+                                <a href="/admin/devicedel/@dev.id" class="btn btn-primary btn-mini">删除</a>
+                            </td>
+                        </tr>
+                        }
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
